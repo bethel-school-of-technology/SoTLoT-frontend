@@ -117,8 +117,16 @@
               "devServerTarget": "SoTLoT:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "SoTLoT"
+    }
+  },
+  "defaultProject": "SoTLoT",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,22 @@
+<p>recipes-list works!</p>
+<table>
+        <thead>
+          <th>Name</th>
+          <th>Ingredient</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let recipe of recipes">
+      
+            <td>{{recipe.recipeName}}</td>
+            <td>{{recipe.recipeIngredient}}</td>
+            <td>{{recipe.recipeDesc}}</td>
+            <td>
+                <button (click)="delete(recipe.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+      

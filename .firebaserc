@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sotlotproject": {
+      "hosting": {
+        "SoTLoT": [
+          "sotlotproject"
+        ]
+      }
+    }
+  }
+}
