@@ -1,12 +1,13 @@
+// import { NgModule } from '@angular/core';
 
 export class Recipe {
-    id: string;
+    id: number;
     name: string;
+    ingredients: string[];
+    instructions: string[];
     desc: string;
-    ingredients: []
-    instructions: []
-    cook_time: number
-    difficulty: string
-    serving_size: number
-    image_link: string
+    cookTime: string;
+    difficulty: string;
+    servingSize: number;
+    imageLink: string;
 }
