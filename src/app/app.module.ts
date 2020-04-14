@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeService } from './recipe.service';
 import {RouterModule} from '@angular/router';
+import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 
 
 
@@ -27,7 +28,8 @@ import {RouterModule} from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    RecipesListComponent
+    RecipesListComponent,
+    SavedRecipesComponent
   ],
   imports: [
     BrowserModule,
