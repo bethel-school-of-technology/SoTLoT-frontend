@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
+import { AngularFireStorage } from 'angularfire2/storage'
+import { AngularFireModule } from '@angular/fire'
 
 @Component({
   selector: 'recipes',
@@ -34,5 +36,7 @@ update(recipe: Recipe) {
 delete(id: string) {
   this.recipeService.deleteRecipe(id);
 }
+
+
 
 }
