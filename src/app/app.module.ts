@@ -10,7 +10,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage'
-import { AngularFireAuthModule } from 'angularfire2/auth'
+import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard/'
 
 import { environment } from '../environments/environment';
@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeService } from './recipe.service';
 import {RouterModule} from '@angular/router';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthService } from './auth.service';
 
 
 
@@ -27,7 +29,8 @@ import {RouterModule} from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    RecipesListComponent
+    RecipesListComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,7 @@ import {RouterModule} from '@angular/router';
 
     
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
