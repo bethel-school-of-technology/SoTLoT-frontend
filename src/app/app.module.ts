@@ -10,7 +10,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage'
-import { AngularFireAuthModule } from 'angularfire2/auth'
+import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard/'
 
 import { environment } from '../environments/environment';
@@ -19,7 +19,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeService } from './recipe.service';
 import {RouterModule} from '@angular/router';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthService } from './auth.service';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
+
 
 
 
@@ -29,6 +32,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
   declarations: [
     AppComponent,
     RecipesListComponent,
+    SignInComponent,
     SavedRecipesComponent
   ],
   imports: [
@@ -48,7 +52,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 
     
   ],
-  providers: [RecipeService],
+  providers: [RecipeService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
