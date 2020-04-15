@@ -21,6 +21,8 @@ import { RecipeService } from './recipe.service';
 import {RouterModule} from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './auth.service';
+import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
+
 
 
 
@@ -30,7 +32,8 @@ import { AuthService } from './auth.service';
   declarations: [
     AppComponent,
     RecipesListComponent,
-    SignInComponent
+    SignInComponent,
+    SavedRecipesComponent
   ],
   imports: [
     BrowserModule,

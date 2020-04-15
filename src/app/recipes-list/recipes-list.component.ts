@@ -17,7 +17,7 @@ export class RecipesListComponent implements OnInit {
 
   ngOnInit() {
     this.recipeService.getRecipes().subscribe(data => {
-      this.recipes = data.map(e => {return {id: e.payload.doc.id, ...e.payload.doc.data() as Recipe}})})}
+    this.recipes = data.map(e => {return {id: e.payload.doc.id, ...e.payload.doc.data() as Recipe}})})}
 
 create(recipe: Recipe){
   this.recipeService.createRecipe(recipe);
