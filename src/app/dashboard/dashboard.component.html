@@ -8,10 +8,7 @@
       <th>Image</th>
     </thead>
     <tbody>
-      
-
-        <!-- Add for loop and See More button after creating model -->
-      
+      <!-- Need Saved Recipe Model -->
     </tbody>
 </table>
 
@@ -23,9 +20,14 @@
       <th>Image</th>
     </thead>
     <tbody>
-      
-
-        <!-- Add for loop and save button after creating model -->
-     
+      <tr *ngFor="let recipe of recipes"> 
+        <td>{{recipe.name}}</td>
+        <td>{{recipe.desc}}</td>
+        <td>{{recipe.imageLink}}</td>
+        <button onclick="saveRecipe()">Save Recipe</button>
+      </tr> 
+      <td>
+        <button onclick="createRecipe()">Create New Recipe</button>
+      </td>
     </tbody>
 </table>
