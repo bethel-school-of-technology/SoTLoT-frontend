@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {Recipe} from './recipe.model'
 import { AngularFireStorage } from 'angularfire2/storage'
+import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 
 
 @Injectable({
@@ -26,6 +27,10 @@ export class RecipeService {
 
   deleteRecipe(recipeId: string) {
     this.firestore.doc('recipes/' + recipeId).delete()
+  }
+
+  saveRecipe(recipe: Recipe) {
+    return this.firestore.collection('recipes').get()
   }
 
 }
