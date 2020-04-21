@@ -12,7 +12,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let recipe of recipes">
-      
+
             <td>{{recipe.name}}</td>
             <td>{{recipe.desc}}</td>
             <td>{{recipe.ingredients}}</td>
@@ -20,7 +20,7 @@
             <td>{{recipe.cook_time}}</td>
             <td>{{recipe.difficulty}}</td>
             <td>{{recipe.serving_size}}</td>
-            
+
 
             <td>
                 <button (click)="delete(recipe.id)">Delete</button>
@@ -30,7 +30,7 @@
       </table>
 <div class="container-fluid">
   <div class="row">
-    
+
 
     <!-- Main content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -63,4 +63,3 @@
     </div>
   </div>
 </div>
-      

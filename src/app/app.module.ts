@@ -23,6 +23,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './auth.service';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 
 
@@ -35,7 +36,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RecipesListComponent,
     SignInComponent,
     SavedRecipesComponent,
-    DashboardComponent
+    DashboardComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
