@@ -55,6 +55,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
 })
 export class AppModule { }
