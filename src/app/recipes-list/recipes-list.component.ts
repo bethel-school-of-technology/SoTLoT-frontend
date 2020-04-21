@@ -4,6 +4,7 @@ import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage'
 import { AngularFireModule } from '@angular/fire'
 import { AuthService} from '../auth.service'
+import { User } from '../shared/services/user'
 
 @Component({
   selector: 'recipes',
@@ -13,6 +14,7 @@ import { AuthService} from '../auth.service'
 export class RecipesListComponent implements OnInit {
 
   recipes: Recipe[]
+  user: User[]
   constructor(private recipeService: RecipeService, public authService: AuthService) { }
 
   ngOnInit() {

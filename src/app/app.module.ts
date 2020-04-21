@@ -50,6 +50,6 @@ import { AuthService } from './auth.service';
     
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
 })
 export class AppModule { }

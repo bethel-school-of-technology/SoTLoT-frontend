@@ -9,11 +9,11 @@ import {Router} from "@angular/router"
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData: any; 
 
   constructor( 
-    public afs: AngularFirestore,   // Inject Firestore service
-    private afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore,   
+    private afAuth: AngularFireAuth, 
     public router: Router,  
     public ngZone: NgZone,
     ) {
@@ -35,7 +35,7 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-   // Auth logic to run auth providers
+   
    AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
