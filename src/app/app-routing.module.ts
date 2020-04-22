@@ -13,9 +13,9 @@ const routes: Routes = [
   {path: 'login', component: SignInComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'saved-recipes', component: SavedRecipesComponent},
-  {path: 'recipebook-detail', component: RecipebookDetailComponent},
-  {path: 'recipe-details', component: RecipeDetailsComponent}
+  {path: 'savedrecipes', component: SavedRecipesComponent},
+  {path: 'savedrecipes/:id', component: RecipebookDetailComponent},
+  {path: 'recipes/:id', component: RecipeDetailsComponent}
 ];
 
 @NgModule({

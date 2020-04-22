@@ -3,18 +3,28 @@
 <p>dashboard works!</p>
 
 <!-- Saved recipes -->
+<p>Saved</p>
 <table>
-    <thead>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-    </thead>
-    <tbody>
-      <!-- Need Saved Recipe Model -->
-    </tbody>
+  <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let userRecipe of userRecipes"> 
+      <td>{{userRecipe.name}}</td>
+      <td>{{userRecipe.desc}}</td>
+      <td>{{userRecipe.imageLink}}</td>
+      <td><a [routerLink]="['/savedrecipes', userRecipe.id]">View</a></td>
+    </tr> 
+    <td>
+      <button routerLink="create">Create New Recipe</button>
+    </td>
+  </tbody>
 </table>
 
 <!-- All recipes -->
+<p>All</p>
 <table>
     <thead>
       <th>Name</th>
@@ -26,10 +36,9 @@
         <td>{{recipe.name}}</td>
         <td>{{recipe.desc}}</td>
         <td>{{recipe.imageLink}}</td>
-        <button onclick="saveRecipe()">Save Recipe</button>
+        <td><a [routerLink]="['/recipes', recipe.id]">View</a></td>
+        <button onclick="saveRecipe(recipe.id)">Save Recipe</button>
       </tr> 
-      <td>
-        <button onclick="createRecipe()">Create New Recipe</button>
-      </td>
     </tbody>
 </table>
+

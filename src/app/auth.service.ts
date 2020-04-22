@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor( 
     public afs: AngularFirestore,   
-    private afAuth: AngularFireAuth, 
+    public afAuth: AngularFireAuth, 
     public router: Router,  
     public ngZone: NgZone,
     ) {
@@ -40,7 +40,7 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['recipes']);
+          this.router.navigate(['dashboard']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {

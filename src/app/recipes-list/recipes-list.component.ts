@@ -18,19 +18,6 @@ export class RecipesListComponent implements OnInit {
   constructor(private recipeService: RecipeService, public authService: AuthService) { }
 
   ngOnInit() {
-    this.recipeService.getRecipes().subscribe(data => {
-    this.recipes = data.map(e => {return {id: e.payload.doc.id, ...e.payload.doc.data() as Recipe}})})}
-
-create(recipe: Recipe){
-  this.recipeService.createRecipe(recipe);
-}
-
-update(recipe: Recipe) {
-  this.recipeService.updateRecipe(recipe);
-}
-
-delete(id: string) {
-  this.recipeService.deleteRecipe(id);
 }
 
 
