@@ -9,9 +9,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage'
-import { AngularFireAuthModule } from '@angular/fire/auth'
-import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard/'
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard/';
 
 import { environment } from '../environments/environment';
 
@@ -24,6 +24,7 @@ import { AuthService } from './auth.service';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipebookDetailComponent } from './recipebook-detail/recipebook-detail.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 
 
@@ -37,7 +38,8 @@ import { RecipebookDetailComponent } from './recipebook-detail/recipebook-detail
     SignInComponent,
     SavedRecipesComponent,
     DashboardComponent,
-    RecipebookDetailComponent
+    RecipebookDetailComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,6 @@ import { RecipebookDetailComponent } from './recipebook-detail/recipebook-detail
     
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
 })
 export class AppModule { }
