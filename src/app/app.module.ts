@@ -25,6 +25,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipebookDetailComponent } from './recipebook-detail/recipebook-detail.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -54,7 +55,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
-    FormsModule, 
+    FormsModule,
+    HttpClientModule
 
     
   ],

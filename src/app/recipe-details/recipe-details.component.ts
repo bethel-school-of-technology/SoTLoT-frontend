@@ -3,7 +3,8 @@ import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage'
 import { AngularFireModule } from '@angular/fire'
-import { AuthService} from '../auth.service'
+import { AuthService } from '../auth.service'
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,10 +15,22 @@ import { AuthService} from '../auth.service'
 export class RecipeDetailsComponent implements OnInit {
 
   recipes: Recipe[]
-    constructor(private recipeService: RecipeService, public authService: AuthService) { }
+  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
-    ngOnInit() {
-      this.recipeService.getRecipes().subscribe(data => {
-      this.recipes = data.map(e => {return {id: e.payload.doc.id, ...e.payload.doc.data() as Recipe}})})}
+  recipe: Recipe;
+
+  getRecipe(): void {
+    this.recipeService.getRecipe(this.recipe.id).subscribe(
+      r => this.recipe = r
+    );
+  }
+  ngOnInit() {
+    this.route.params.subscribe(param => {
+      this.recipeService.getRecipe(param["id"])
+      .subscribe(r => (this.recipe = r)
+
+      )
+    })
+  }
 }
 
