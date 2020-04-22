@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
-import { AngularFireStorage } from 'angularfire2/storage'
-import { AngularFireModule } from '@angular/fire'
-import { AuthService} from '../auth.service'
+import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-dashboard',
