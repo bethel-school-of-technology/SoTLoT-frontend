@@ -15,22 +15,18 @@ import { User } from '../shared/services/user';
 })
 export class RecipebookDetailComponent implements OnInit {
 
-  recipes: Recipe[]
+
   constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   recipe: Recipe;
   user: User;
 
-  getRecipe(): void {
-    this.recipeService.getUserRecipe(this.recipe.id, this.user.uid).subscribe(
-      r => this.recipe = r
-    );
-  }
+
   ngOnInit() {
 
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };
-      this.route.params.subscribe(param => {
+      this.route.params.subscribe( param => {
         this.recipeService.getUserRecipe(param["id"], this.user.uid)
         .subscribe(r => (this.recipe = r)
   

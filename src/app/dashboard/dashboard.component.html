@@ -18,6 +18,7 @@
       <td><a [routerLink]="['/savedrecipes', userRecipe.id]">View</a></td>
     </tr> 
     <td>
+      <!-- update with new routing for add recipe component -->
       <button routerLink="create">Create New Recipe</button>
     </td>
   </tbody>
@@ -37,7 +38,7 @@
         <td>{{recipe.desc}}</td>
         <td>{{recipe.imageLink}}</td>
         <td><a [routerLink]="['/recipes', recipe.id]">View</a></td>
-        <button onclick="saveRecipe(recipe.id)">Save Recipe</button>
+        <button (click)="saveRecipe(recipe.id)">Save Recipe</button>
       </tr> 
     </tbody>
 </table>
