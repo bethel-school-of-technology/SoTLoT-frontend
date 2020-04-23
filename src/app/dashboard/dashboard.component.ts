@@ -13,26 +13,34 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) {
-   }
+  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+
   recipes: Recipe[];
   userRecipes: Recipe[];
   user: User;
+
   getRecipes() : void {
     this.recipeService.getRecipes().subscribe(
       r => this.recipes = r
     );
   }
+
+  saveRecipe(recipe): void {
+    this.recipeService.saveRecipe(recipe, this.user.uid).subscribe(
+      r => this.getUserRecipes());
+  }
+
   getUserRecipes() : void {
     this.recipeService.getUserRecipes(this.user.uid).subscribe(
       r => this.userRecipes = r
     );
   }
+
   ngOnInit() {
-    this.getRecipes();
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };
       this.getUserRecipes();
+      this.getRecipes();
     });
   }
 }
