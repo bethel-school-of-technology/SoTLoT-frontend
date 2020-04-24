@@ -14,7 +14,7 @@
   </thead>
   <tbody>
 
-    <tr *ngFor="let recipe of recipes"> <!--need to change function in service/ts-->
+    <tr>
 
       <td>{{recipe.name}}</td>
       <td>{{recipe.desc}}</td>
@@ -24,7 +24,7 @@
       <td>{{recipe.difficulty}}</td>
       <td>{{recipe.servingSize}}</td>
       <td>{{recipe.imageLink}}</td>
-      <button onclick="saveRecipe()">Save Recipe</button>
+      <button (click)="saveRecipe()">Save Recipe</button>
   </tr>
   </tbody>
 </table>

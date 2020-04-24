@@ -4,6 +4,8 @@ import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../shared/services/user';
 
 
 @Component({
@@ -13,9 +15,24 @@ import { AuthService} from '../auth.service';
 })
 export class RecipebookDetailComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
+
+  recipe: Recipe;
+  user: User;
+
+
+  ngOnInit() {
+
+    this.authService.afAuth.authState.subscribe( userdata => {
+      if (userdata) { this.user = userdata };
+      this.route.params.subscribe( param => {
+        this.recipeService.getUserRecipe(param["id"], this.user.uid)
+        .subscribe(r => (this.recipe = r)
+  
+        )
+      })
+    });
+
   }
-
 }

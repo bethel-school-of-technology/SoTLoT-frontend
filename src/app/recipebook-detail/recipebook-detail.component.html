@@ -14,19 +14,20 @@
       <th>Image</th>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes">
+      <tr>
   
         <td>{{recipe.name}}</td>
         <td>{{recipe.desc}}</td>
         <td>{{recipe.ingredients}}</td>
         <td>{{recipe.instructions}}</td>
-        <td>{{recipe.cook_time}}</td>
+        <td>{{recipe.cookTime}}</td>
         <td>{{recipe.difficulty}}</td>
-        <td>{{recipe.serving_size}}</td>
+        <td>{{recipe.servingSize}}</td>
         
 
         <td>
-            <button (click)="delete(recipe.id)">Delete</button>
+          <!-- Update to route to edit component and use recipe.id as a param -->
+            <button>Edit</button>
         </td>
       </tr>
     </tbody>

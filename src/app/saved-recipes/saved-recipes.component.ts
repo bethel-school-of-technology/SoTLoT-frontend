@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
-import { AngularFireStorage } from 'angularfire2/storage'
-import { AngularFireModule } from '@angular/fire'
-import { AuthService} from '../auth.service'
+import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AuthService} from '../auth.service';
+import { User } from '../shared/services/user'
 
 @Component({
   selector: 'app-saved-recipes',
@@ -12,13 +13,23 @@ import { AuthService} from '../auth.service'
 })
 export class SavedRecipesComponent implements OnInit {
 
-  recipes: Recipe[]
+  recipes: Recipe[];
+  user: User;
 
     constructor(private recipeService: RecipeService, public authService: AuthService) { }
 
+    getUserRecipes() : void {
+      this.recipeService.getUserRecipes(this.user.uid).subscribe(
+        r => this.recipes = r
+      );
+    }
+
     ngOnInit() {
-      this.recipeService.getRecipes().subscribe(data => {
-      this.recipes = data.map(e => {return {id: e.payload.doc.id, ...e.payload.doc.data() as Recipe}})})}
+      this.authService.afAuth.authState.subscribe( userdata => {
+        if (userdata) { this.user = userdata };
+        this.getUserRecipes();
+      });
+    }
 }
 
 
