@@ -6,6 +6,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {SavedRecipesComponent} from './saved-recipes/saved-recipes.component';
 import {RecipebookDetailComponent} from './recipebook-detail/recipebook-detail.component';
 import {RecipeDetailsComponent} from './recipe-details/recipe-details.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'savedrecipes', component: SavedRecipesComponent},
   {path: 'savedrecipes/:id', component: RecipebookDetailComponent},
-  {path: 'recipes/:id', component: RecipeDetailsComponent}
+  {path: 'recipes/:id', component: RecipeDetailsComponent},
+  {path: 'addrecipe', component: AddRecipeComponent}
 ];
 
 @NgModule({
