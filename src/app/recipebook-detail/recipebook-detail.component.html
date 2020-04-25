@@ -2,6 +2,8 @@
 
 <p>recipebook-detail works!</p>
 
+  <img src={{recipe.imageLink}}>
+
 <table>
     <thead>
       <th>Name</th>
@@ -11,11 +13,12 @@
       <th>Cook Time</th>
       <th>Difficulty</th>
       <th>Serving Size</th>
-      <th>Image</th>
+
+
     </thead>
     <tbody>
       <tr>
-  
+
         <td>{{recipe.name}}</td>
         <td>{{recipe.desc}}</td>
         <td>{{recipe.ingredients}}</td>
@@ -23,7 +26,7 @@
         <td>{{recipe.cookTime}}</td>
         <td>{{recipe.difficulty}}</td>
         <td>{{recipe.servingSize}}</td>
-        
+     
 
         <td>
           <!-- Update to route to edit component and use recipe.id as a param -->
