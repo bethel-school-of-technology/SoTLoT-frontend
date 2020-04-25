@@ -6,11 +6,11 @@
   <thead>
     <td>Name</td>
     <td>Description</td>
-    <td>Image</td>
+    <td>Ingredients</td>
   </thead>
 <tbody>
 
-   <button>See More</button>
+
 
    <!--Need to add ngFor loop-->
 
@@ -19,6 +19,7 @@
     <td>{{recipe.name}}</td>
     <td>{{recipe.desc}}</td>
     <td>{{recipe.ingredients}}</td>
+    <a [routerLink]="['/savedrecipes', recipe.id]">View</a>
 
     <td>
         <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button>Edit</button></a>

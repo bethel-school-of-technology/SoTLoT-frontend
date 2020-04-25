@@ -52,4 +52,9 @@ export class RecipeService {
   editRecipe (recipe: string, uid: string): Observable<Recipe>{
     return this.http.put<Recipe>(this.url + "/users/" + uid + "/", recipe);
   }
+  
+  addRecipe(recipe: Recipe, uid: string): Observable<Recipe>{
+    return this.http.post<Recipe>(this.url + "/users/newrecipe/" + uid, recipe);
+  }
+
 }

@@ -1,6 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
-<p>recipe-details works!</p>
+<img src={{recipe.imageLink}}>
+
 <table>
   <thead>
     <th>Name</th>
@@ -10,7 +11,7 @@
     <th>Cook Time</th>
     <th>Difficulty</th>
     <th>Serving Size</th>
-    <th>Image</th>
+
   </thead>
   <tbody>
 
@@ -23,7 +24,7 @@
       <td>{{recipe.cookTime}}</td>
       <td>{{recipe.difficulty}}</td>
       <td>{{recipe.servingSize}}</td>
-      <td>{{recipe.imageLink}}</td>
+    
       <button (click)="saveRecipe()">Save Recipe</button>
   </tr>
   </tbody>

@@ -27,6 +27,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+
 
 
 
@@ -43,7 +45,8 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
     NavBarComponent,
     RecipebookDetailComponent,
     RecipeDetailsComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,
