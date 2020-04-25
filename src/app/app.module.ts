@@ -28,6 +28,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 
 
@@ -46,6 +47,7 @@ import { SearchComponent } from './search/search.component';
     RecipebookDetailComponent,
     RecipeDetailsComponent,
     SearchComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,

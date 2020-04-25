@@ -11,18 +11,20 @@
     <th>Image</th>
   </thead>
   <tbody>
-    <tr *ngFor="let userRecipe of userRecipes"> 
+    <tr *ngFor="let userRecipe of userRecipes">
       <td>{{userRecipe.name}}</td>
       <td>{{userRecipe.desc}}</td>
       <td>{{userRecipe.imageLink}}</td>
       <td><a [routerLink]="['/savedrecipes', userRecipe.id]">View</a></td>
-    </tr> 
+    </tr>
     <td>
       <!-- update with new routing for add recipe component -->
-      <button routerLink="create">Create New Recipe</button>
+      <button routerLink="/addrecipe">Create New Recipe</button>
     </td>
   </tbody>
 </table>
+
+  <button [routerLink]="['/savedrecipes']">View All</button>
 
 <!-- All recipes -->
 <p>All</p>
@@ -34,13 +36,13 @@
       <th>Image</th>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes"> 
+      <tr *ngFor="let recipe of recipes">
         <td>{{recipe.name}}</td>
         <td>{{recipe.desc}}</td>
         <td>{{recipe.imageLink}}</td>
         <td><a [routerLink]="['/recipes', recipe.id]">View</a></td>
         <button (click)="saveRecipe(recipe.id)">Save Recipe</button>
-      </tr> 
+      </tr>
     </tbody>
 </table>
 
