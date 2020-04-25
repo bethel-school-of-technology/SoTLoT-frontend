@@ -1,6 +1,6 @@
-<p>add-recipe works!</p>
+<app-nav-bar></app-nav-bar>
 
-<form>
+
 Name: <input [(ngModel)]="newRecipe.name">
 <br/>
 Description: <input [(ngModel)]="newRecipe.desc"> <!--text area box?-->
@@ -13,9 +13,12 @@ Cook Time:  <input [(ngModel)]="newRecipe.cookTime"> <!--Drop down menu?-->
 <br/>
 Difficulty: <input [(ngModel)]="newRecipe.difficulty"> <!--Drop down menu with 3 options-->
 <br/>
-Serving Size: <input [(ngModel)]="newRecipe.servingSize"> <!--Drop down or number entry?-->
+Serving Size: <input type="number" [(ngModel)]="newRecipe.servingSize"> <!--Drop down or number entry?-->
 <br/>
 Image: <input [(ngModel)]="newRecipe.imageLink"> <!--Find out how user can upload an image from web, google drive, PC-->
 
-</form>
-<button>Submit</button>
+<button (click)="addRecipe()">Submit</button>
+
+
+
+
