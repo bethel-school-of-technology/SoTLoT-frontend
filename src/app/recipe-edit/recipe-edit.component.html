@@ -1,0 +1,18 @@
+<h2>Edit {{editRecipe.name}} Recipe</h2>
+
+
+ingredients: <input [(ngModel)]="editRecipe.ingredients">
+<br>
+<br>
+instructions: <input [(ngModel)]="editRecipe.instructions">
+<br>
+<br>
+desc: <input [(ngModel)]="editRecipe.desc">
+<br>
+<br>
+cookTime: <input [(ngModel)]="editRecipe.cookTime">
+<br>
+<br>
+<button ng-click="cancelEdit()">Cancel</button>
+
+    <!-- <button (click)="saveRecipe()">Save</button> -->

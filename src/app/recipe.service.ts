@@ -49,4 +49,7 @@ export class RecipeService {
     return this.http.get<User>(this.url + "/users/" + uid)
   }
 
+  editRecipe (recipe: string, uid: string): Observable<Recipe>{
+    return this.http.put<Recipe>(this.url + "/users/" + uid + "/", recipe);
+  }
 }

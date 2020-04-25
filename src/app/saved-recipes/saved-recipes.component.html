@@ -20,5 +20,9 @@
     <td>{{recipe.desc}}</td>
     <td>{{recipe.ingredients}}</td>
 
+    <td>
+        <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button>Edit</button></a>
+    </td>
+
 </tbody>
 </table>
