@@ -7,6 +7,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
 
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -19,17 +20,23 @@ export class RecipeEditComponent implements OnInit {
   editRecipe: Recipe = new Recipe();
   user:  User;
   
-  saveRecipe(recipe) {
-    this.recipeService.editRecipe(recipe, this.user.uid)
-    .subscribe(r => this.router.navigate(['saved-recipes']));
+ 
+  updateRecipe(){
+    this.recipeService.updateRecipe(this.editRecipe, this.user.uid, this.editRecipe.id)
+    .subscribe(r => this.router.navigate(["/savedrecipes/" + r]));
+  };
+
+  backClicked() {
+    this.location.back();
   }
 
   constructor(private recipeService: RecipeService, 
     public authService: AuthService, 
     private router: Router, 
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private location: Location) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.afAuth.authState.subscribe(userdata => {
       if (userdata) {this.user = userdata};
       this.route.params.subscribe(param => {
