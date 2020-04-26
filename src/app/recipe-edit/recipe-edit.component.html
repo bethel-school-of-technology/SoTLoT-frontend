@@ -1,0 +1,26 @@
+<app-nav-bar></app-nav-bar>
+
+
+<h2>Edit {{editRecipe.name}} Recipe</h2>
+
+When listing the ingeadients, use only a comma to separate each item.
+<br>
+<br>
+ingredients: <textarea [(ngModel)]="editRecipe.ingredients"></textarea>
+<br>
+<br>
+instructions: <textarea [(ngModel)]="editRecipe.instructions"></textarea>
+<br>
+<br>
+desc: <textarea [(ngModel)]="editRecipe.desc"></textarea>
+<br>
+<br>
+cookTime: <input [(ngModel)]="editRecipe.cookTime">
+<br>
+<br>
+servingSize: <input [(ngModel)]="editRecipe.servingSize">
+<br>
+<br>
+<button (click)=backClicked()>Cancel</button>
+
+<button (click)="updateRecipe()">Save</button>

@@ -17,6 +17,8 @@ Serving Size: <input type="number" [(ngModel)]="newRecipe.servingSize"> <!--Drop
 <br/>
 Image: <input [(ngModel)]="newRecipe.imageLink"> <!--Find out how user can upload an image from web, google drive, PC-->
 
+<button (click)=backClicked()>Cancel</button>
+
 <button (click)="addRecipe()">Submit</button>
 
 

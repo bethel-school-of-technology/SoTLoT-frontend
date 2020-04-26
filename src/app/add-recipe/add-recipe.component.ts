@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../shared/services/user';
 import { FormsModule } from '@angular/forms';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
@@ -18,13 +20,18 @@ export class AddRecipeComponent implements OnInit {
   newRecipe: Recipe = new Recipe();
   user: User;
 
+
   addRecipe(){
     this.recipeService.addRecipe(this.newRecipe, this.user.uid).subscribe(
       r =>
       this.router.navigate(["savedrecipes/" + r]));
+  };
+
+  backClicked() {
+    this.location.back();
   }
 
-  constructor(private recipeService: RecipeService, private router: Router, public authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private router: Router, public authService: AuthService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
     this.authService.afAuth.authState.subscribe( userdata => {
