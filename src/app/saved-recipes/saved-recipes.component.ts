@@ -24,6 +24,12 @@ export class SavedRecipesComponent implements OnInit {
       );
     }
 
+    deleteUserRecipe(recipe: string, uid: string): void {
+      if (confirm("Are you sure you want to delete this recipe? This request cannot be undone.")) {
+        this.recipeService.deleteUserRecipe(recipe, uid).subscribe(r => this.getUserRecipes());
+      }
+    }
+
     ngOnInit() {
       this.authService.afAuth.authState.subscribe( userdata => {
         if (userdata) { this.user = userdata };

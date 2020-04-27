@@ -15,6 +15,11 @@ import { User } from '../shared/services/user';
 })
 export class RecipebookDetailComponent implements OnInit {
 
+deleteUserRecipe(recipe: string, uid: string): void {
+if (confirm("Are you sure you want to delete this recipe? This request cannot be undone.")) {
+  this.recipeService.deleteUserRecipe(recipe, uid).subscribe(r => this.router.navigate(["savedrecipes/"]));
+  }
+}
 
   constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
