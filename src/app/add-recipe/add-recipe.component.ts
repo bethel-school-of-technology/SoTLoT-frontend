@@ -6,7 +6,8 @@ import { AngularFireModule } from '@angular/fire'
 import { AuthService } from '../auth.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../shared/services/user';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+
 
 import { Location } from '@angular/common';
 
@@ -17,12 +18,13 @@ import { Location } from '@angular/common';
 })
 export class AddRecipeComponent implements OnInit {
 
-  newRecipe: Recipe = new Recipe();
+  newRecipe: FormGroup;
   user: User;
 
+  constructor(private recipeService: RecipeService, private router: Router, public authService: AuthService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) { }
 
   addRecipe(){
-    this.recipeService.addRecipe(this.newRecipe, this.user.uid).subscribe(
+    this.recipeService.addRecipe(this.newRecipe.value, this.user.uid).subscribe(
       r =>
       this.router.navigate(["savedrecipes/" + r]));
   };
@@ -31,12 +33,48 @@ export class AddRecipeComponent implements OnInit {
     this.location.back();
   }
 
-  constructor(private recipeService: RecipeService, private router: Router, public authService: AuthService, private route: ActivatedRoute, private location: Location) { }
+  addIngredient() {
+    this.ingredientForms.push(new FormControl(''));
+  }
+
+  deleteIngredient(i) {
+    this.ingredientForms.removeAt(i)
+  }
+
+  get ingredientForms() {
+    return this.newRecipe.get('ingredients') as FormArray
+  }
+
+////////////
+
+addInstruction() {
+  this.instructionForms.push(new FormControl(''));
+}
+
+deleteInstruction(i) {
+  this.instructionForms.removeAt(i)
+}
+
+get instructionForms() {
+  return this.newRecipe.get('instructions') as FormArray
+}
 
   ngOnInit(): void {
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };
     });
+
+    this.newRecipe = this.fb.group({
+      name: "",
+      desc: "",
+      ingredients: this.fb.array([""]),
+      instructions: this.fb.array([""]),
+      cookTime: "",
+      difficulty: "",
+      servingSize: 0,
+      imageLink: ""
+    })
+
   }
 
 }

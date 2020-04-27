@@ -28,6 +28,13 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
+import { MatButtonModule } from '@angular/material/button'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatChipsModule } from '@angular/material/chips'
 
 
 
@@ -62,7 +69,13 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatInputModule,
+    MatSelectModule
 
     
   ],
