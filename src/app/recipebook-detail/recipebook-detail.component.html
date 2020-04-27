@@ -31,6 +31,7 @@
         <td>
           <!-- Update to route to edit component and use recipe.id as a param -->
             <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button>Edit</button></a>
+            <button (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</button>
         </td>
       </tr>
     </tbody> 
