@@ -1,21 +1,88 @@
 <app-nav-bar></app-nav-bar>
 
+<form [formGroup]="newRecipe">
 
-Name: <input [(ngModel)]="newRecipe.name">
-<br/>
-Description: <input [(ngModel)]="newRecipe.desc"> <!--text area box?-->
-<br/>
-Ingredients: <input [(ngModel)]="newRecipe.ingredients"> <!--Need Multiple input text boxes, user be able to click add a text box or delete if hits add & doesnt need-->
-<br/>
-Instructions: <input [(ngModel)]="newRecipe.instructions"> <!-- Need Multiple input boxes -->
-<br/>
-Cook Time:  <input [(ngModel)]="newRecipe.cookTime"> <!--Drop down menu?-->
-<br/>
-Difficulty: <input [(ngModel)]="newRecipe.difficulty"> <!--Drop down menu with 3 options-->
-<br/>
-Serving Size: <input type="number" [(ngModel)]="newRecipe.servingSize"> <!--Drop down or number entry?-->
-<br/>
-Image: <input [(ngModel)]="newRecipe.imageLink"> <!--Find out how user can upload an image from web, google drive, PC-->
+    <!-- Value: {{ newRecipe.value | json }} -->
+
+    <hr>
+
+    <mat-form-field class="full">
+        <input matInput placeholder="Recipe Name" formControlName="name">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="full">
+        <textarea matInput placeholder="Descrition" formControlName="desc"></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <div formArrayName="ingredients">
+
+        <div *ngFor="let ingredient of ingredientForms.controls; let i=index" [formGroupName]="i">
+
+
+            <mat-form-field class="xs">
+                <textarea matInput placeholder="Ingredient {{i +1}})" [formControl]="ingredientForms.controls[i]"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" (click)="deleteIngredient(i)">Delete</button>
+
+        </div>
+
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addIngredient()">Add ingredient</button>
+
+    <br>
+    <br>
+
+    <div formArrayName="instructions">
+
+        <div *ngFor="let instruction of instructionForms.controls; let i=index" [formGroupName]="i">
+
+
+            <mat-form-field class="xs">
+                <textarea matInput placeholder="Instruction {{i +1}})" [formControl]="instructionForms.controls[i]"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" (click)="deleteInstruction(i)">Delete</button>
+
+        </div>
+
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addInstruction()">Add instruction</button>
+
+    <br>
+
+    <mat-form-field class="full">
+        <input matInput placeholder="Cook Time" formControlName="cookTime">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="full">
+        <input matInput placeholder="Difficulty" formControlName="difficulty">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="full">
+        <input type="number" matInput placeholder="Serving Size" formControlName="servingSize">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="full">
+        <input  matInput placeholder="Image URL" formControlName="imageLink">
+    </mat-form-field>
+    <h6>To load you own image, using a hosting site like <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.</h6>
+    <h6>If working, your image will display below:</h6>
+    <img src={{newRecipe.value.imageLink}}>
+
+</form>
 
 <button (click)=backClicked()>Cancel</button>
 
