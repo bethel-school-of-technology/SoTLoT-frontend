@@ -30,14 +30,11 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatInputModule } from '@angular/material/input'
-import { MatSelectModule } from '@angular/material/select'
-import { MatButtonModule } from '@angular/material/button'
-import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatChipsModule } from '@angular/material/chips'
-
-
-
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -71,11 +68,11 @@ import { MatChipsModule } from '@angular/material/chips'
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatChipsModule,
-    MatInputModule,
-    MatSelectModule
+    MatChipsModule
 
     
   ],
