@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage';
@@ -18,9 +18,17 @@ export class DashboardComponent implements OnInit {
   recipes: Recipe[];
   userRecipes: Recipe[];
   user: User;
+  search: string;
 
   getRecipes() : void {
     this.recipeService.getRecipes().subscribe(
+      r => this.recipes = r
+    );
+    this.search = ""
+  }
+  
+  searchRecipes(search) : void { 
+    this.recipeService.getRecipeSearch(search).subscribe(
       r => this.recipes = r
     );
   }
