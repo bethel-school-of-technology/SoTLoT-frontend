@@ -1,26 +1,80 @@
 <app-nav-bar></app-nav-bar>
 
+<hr>
+<h2>Edit Your {{editRecipe.name}} Recipe</h2>
 
-<h2>Edit {{editRecipe.name}} Recipe</h2>
+<!-- For debugging purposes -->
+<div hidden>Value: {{editForm.value | json}}</div>
 
-When listing the ingeadients, use only a comma to separate each item.
+<form [formGroup]="editForm">
+
+<mat-form-field class="full">
+   <input matInput placeholder="Recipe Name" formControlName="name">
+</mat-form-field>
+
 <br>
+
+<mat-form-field class="full">
+    <textarea matInput placeholder="Descrition" formControlName="desc"></textarea>
+</mat-form-field>
+
 <br>
-ingredients: <textarea [(ngModel)]="editRecipe.ingredients"></textarea>
-<br>
-<br>
-instructions: <textarea [(ngModel)]="editRecipe.instructions"></textarea>
-<br>
-<br>
-desc: <textarea [(ngModel)]="editRecipe.desc"></textarea>
-<br>
-<br>
-cookTime: <input [(ngModel)]="editRecipe.cookTime">
-<br>
-<br>
-servingSize: <input [(ngModel)]="editRecipe.servingSize">
-<br>
-<br>
+
+<mat-form-field class="full">
+    <input matInput typ="number" placeholder="Serving Size" formControlName="servingSize">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="full">
+    <input matInput placeholder="Cook Time" formControlName="cookTime">
+  </mat-form-field>
+
+<hr>
+
+<div formArrayName="ingredients">
+    <div *ngFor="let ingredient of ingredientForm.controls; let i=index" [formGroupName]="i">
+
+
+        <mat-form-field class="xs">
+            <input matInput placeholder="Ingredient {{i +1}}" [formControl]="ingredientForm.controls[i]">
+        </mat-form-field>
+
+    
+        <button mat-raised-button color="warn" (click)="deleteIngredient(i)">Delete</button>
+
+    </div>
+</div>
+<button mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
+
+<hr>
+
+<div formArrayName="instructions">
+    <div *ngFor="let instruction of instructionsForm.controls; let i=index" [formGroupName]="i">
+
+
+        <mat-form-field class="xs">
+            <textarea matInput placeholder="Instructions {{i +1}}" [formControl]="instructionsForm.controls[i]"></textarea>
+        </mat-form-field>
+
+    
+        <button mat-raised-button color="warn" (click)="deleteInstructions(i)">Delete</button>
+
+    </div>
+</div>
+<button mat-raised-button color="primary" (click)="addInstructions()">Add Instructions</button>
+
+<hr>
+
+<mat-form-field class="full">
+    <input  matInput placeholder="Image URL" formControlName="imageLink">
+</mat-form-field>
+<h6>To load you own image, using a hosting site like <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.</h6>
+<h6>If working, your image will display below:</h6>
+<img src={{editForm.value.imageLink}}>
+
+</form>
+
 <button (click)=backClicked()>Cancel</button>
 
 <button (click)="updateRecipe()">Save</button>
