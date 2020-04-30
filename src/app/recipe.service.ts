@@ -57,4 +57,8 @@ export class RecipeService {
     return this.http.post<object>(this.url + "/users/newrecipe/" + uid, recipe);
   }
 
+  getRecipeSearch(search: string): Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(this.url + "/recipes/search/" + search);
+  }
+
 }

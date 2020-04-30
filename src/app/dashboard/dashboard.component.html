@@ -30,7 +30,17 @@
   <button [routerLink]="['/savedrecipes']">View All</button>
 
 
-<!-- <p>All</p>
+
+
+<!-- All recipes -->
+<p>All</p>
+
+<form>
+  <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+</form>
+<button (click)="searchRecipes(search)">Search</button>
+<button (click)="getRecipes()">Clear</button>
+
 <table>
     <thead>
       <th>Name</th>
