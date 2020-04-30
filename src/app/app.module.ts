@@ -42,7 +42,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { FooterComponent } from './footer/footer.component'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 
 
@@ -63,7 +66,7 @@ import { MatDialogModule } from '@angular/material/dialog'
     RecipeDetailsComponent,
     RecipeEditComponent,
     AddRecipeComponent, 
-    UserDialogComponent
+    UserDialogComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +96,9 @@ import { MatDialogModule } from '@angular/material/dialog'
     MatInputModule,
     MatSelectModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatSidenavModule
 
 
     
