@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Account Info</h2>
+
+<mat-dialog-content *ngIf="authService.userData as user">
+    <div>
+        <img style="width: 25%; height: 25%;" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+    </div>
+    <div>
+        <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+        <p><strong>{{user.email}}</strong></p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="authService.SignOut()">Log Out</button>
+</mat-dialog-actions>
