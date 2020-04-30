@@ -31,12 +31,25 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
+
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatChipsModule } from '@angular/material/chips'
 import { MatCardModule } from '@angular/material/card'
+
 
 
 
@@ -77,6 +90,11 @@ import { MatCardModule } from '@angular/material/card'
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
+    MatMenuModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule
 
     MatChipsModule,
     MatInputModule,
@@ -87,6 +105,7 @@ import { MatCardModule } from '@angular/material/card'
     
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
