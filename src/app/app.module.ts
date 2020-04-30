@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDialogComponent } from './user-dialog/user-dialog.component'
 
 
 import {MatInputModule} from '@angular/material/input';
@@ -41,14 +42,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-
-
-import { MatInputModule } from '@angular/material/input'
-import { MatSelectModule } from '@angular/material/select'
-import { MatButtonModule } from '@angular/material/button'
-import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatChipsModule } from '@angular/material/chips'
-import { MatCardModule } from '@angular/material/card'
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 
@@ -68,7 +62,8 @@ import { MatCardModule } from '@angular/material/card'
     RecipebookDetailComponent,
     RecipeDetailsComponent,
     RecipeEditComponent,
-    AddRecipeComponent
+    AddRecipeComponent, 
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -94,18 +89,18 @@ import { MatCardModule } from '@angular/material/card'
     MatMenuModule,
     MatGridListModule,
     MatCardModule,
-    MatIconModule
-
-    MatChipsModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
 
 
     
   ],
   providers: [RecipeService, AuthService],
   bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents: [UserDialogComponent]
 })
 export class AppModule { }
