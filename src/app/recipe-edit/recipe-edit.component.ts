@@ -22,8 +22,7 @@ export class RecipeEditComponent implements OnInit {
   editForm: FormGroup;
 
   updateRecipe() {
-    this.recipeService
-      .updateRecipe(this.editForm.value, this.user.uid, this.editRecipe.id)
+    this.recipeService.updateRecipe(this.editForm.value, this.user.uid, this.editRecipe.id)
       .subscribe((r) => this.router.navigate(['/savedrecipes/' + this.editRecipe.id]));
   }
 
@@ -58,6 +57,7 @@ export class RecipeEditComponent implements OnInit {
               cookTime: this.editRecipe.cookTime,
               servingSize: this.editRecipe.servingSize,
               imageLink: this.editRecipe.imageLink,
+              timeStamp: new Date
             });
           });
       });
@@ -72,7 +72,7 @@ export class RecipeEditComponent implements OnInit {
   deleteIngredient(i) {
     this.ingredientForm.removeAt(i);
   }
-
+///////////////////////////////
   get instructionsForm() {
     return this.editForm.get('instructions') as FormArray;
   }

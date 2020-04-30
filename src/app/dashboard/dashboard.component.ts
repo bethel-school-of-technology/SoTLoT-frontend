@@ -12,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
 export class DashboardComponent implements OnInit {
   constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
@@ -20,6 +22,7 @@ export class DashboardComponent implements OnInit {
   user: User;
   search: string;
 
+  
   getRecipes() : void {
     this.recipeService.getRecipes().subscribe(
       r => this.recipes = r
@@ -34,7 +37,8 @@ export class DashboardComponent implements OnInit {
   }
 
   saveRecipe(recipe): void {
-    this.recipeService.saveRecipe(recipe, this.user.uid).subscribe(
+    let dateObject = {timeStamp: new Date}
+    this.recipeService.saveRecipe(recipe, this.user.uid, dateObject).subscribe(
       r => this.getUserRecipes());
   }
 
@@ -44,6 +48,7 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  
   ngOnInit() {
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };
@@ -51,4 +56,7 @@ export class DashboardComponent implements OnInit {
       this.getRecipes();
     });
   }
+
+
+
 }
