@@ -35,7 +35,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
-
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -72,11 +76,16 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule
 
     
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
