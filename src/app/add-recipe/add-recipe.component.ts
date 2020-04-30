@@ -64,7 +64,10 @@ get instructionForms() {
       if (userdata) { this.user = userdata };
     });
 
-    this.newRecipe = this.fb.group({
+
+     let date = new Date;
+
+      this.newRecipe = this.fb.group({
       name: "",
       desc: "",
       ingredients: this.fb.array([""]),
@@ -72,7 +75,11 @@ get instructionForms() {
       cookTime: "",
       difficulty: "",
       servingSize: 0,
-      imageLink: ""
+      imageLink: "",
+      timeStamp: date
+
+
+     
     })
 
   }

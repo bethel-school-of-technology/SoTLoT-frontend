@@ -37,8 +37,8 @@ export class RecipeService {
     return this.http.get<Recipe>(this.url + "/users/" + uid + "/" + recipe)
   }
 
-  saveRecipe(recipe: string, uid: string): Observable<Recipe>{
-    return this.http.post<Recipe>(this.url + "/" + recipe + "/add/" + uid, "")
+  saveRecipe(recipe: string, uid: string, timeStamp: object): Observable<Recipe>{
+    return this.http.post<Recipe>(this.url + "/" + recipe + "/add/" + uid, timeStamp)
   }
 
   deleteUserRecipe(recipe: string, uid: string): Observable<Recipe>{
