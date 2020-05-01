@@ -1,4 +1,4 @@
-a.right-1{
+/* a.right-1{
     display: inline-block;
     text-align: right;
     width: 60%;
@@ -15,4 +15,25 @@ a.far-right {
     text-align: right;
     width: 20%;
     margin-left: 0;
+} */
+
+.icon {
+    margin: 0 10px 0 0;
+    position: relative; 
+    top:4px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .pointer {
+    cursor: pointer;
+    margin: 0 14px;
+}
+
+@media (max-width: 992px) {
+    .tabHide {
+    display: none;
+    }
 }
