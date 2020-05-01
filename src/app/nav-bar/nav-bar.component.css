@@ -18,7 +18,7 @@ a.far-right {
 } */
 
 .icon {
-    padding: 0 12px;
+    margin: 0 10px 0 0;
     position: relative; 
     top:4px;
   }
@@ -29,6 +29,7 @@ a.far-right {
 
   .pointer {
     cursor: pointer;
+    margin: 0 14px;
 }
 
 @media (max-width: 992px) {
