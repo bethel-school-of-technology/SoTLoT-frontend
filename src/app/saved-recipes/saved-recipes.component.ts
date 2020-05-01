@@ -15,11 +15,19 @@ export class SavedRecipesComponent implements OnInit {
 
   recipes: Recipe[];
   user: User;
+  search: string;
 
     constructor(private recipeService: RecipeService, public authService: AuthService) { }
 
     getUserRecipes() : void {
       this.recipeService.getUserRecipes(this.user.uid).subscribe(
+        r => this.recipes = r
+      );
+      this.search = ""
+    }
+
+    searchUserRecipes(search) : void { 
+      this.recipeService.getUserRecipeSearch(search, this.user.uid).subscribe(
         r => this.recipes = r
       );
     }
