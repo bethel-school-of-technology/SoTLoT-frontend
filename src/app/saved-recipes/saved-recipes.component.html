@@ -1,6 +1,10 @@
 <app-nav-bar></app-nav-bar>
 
-<p>saved-recipes works!</p>
+<form>
+  <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+</form>
+<button (click)="searchUserRecipes(search)">Search</button>
+<button (click)="getUserRecipes()">Clear</button>
 
 <table>
   <thead>
