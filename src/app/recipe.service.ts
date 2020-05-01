@@ -38,8 +38,8 @@ export class RecipeService {
     return this.http.get<Recipe>(this.url + "/users/" + uid + "/" + recipe)
   }
 
-  saveRecipe(recipe: string, uid: string): Observable<Recipe>{
-    return this.http.post<Recipe>(this.url + "/" + recipe + "/add/" + uid, "")
+  saveRecipe(recipe: string, uid: string, timeStamp: object): Observable<Recipe>{
+    return this.http.post<Recipe>(this.url + "/" + recipe + "/add/" + uid, timeStamp)
   }
 
   deleteUserRecipe(recipe: string, uid: string): Observable<Recipe>{
@@ -56,6 +56,14 @@ export class RecipeService {
 
   addRecipe(recipe: object, uid: string): Observable<object>{
     return this.http.post<object>(this.url + "/users/newrecipe/" + uid, recipe);
+  }
+
+  getRecipeSearch(search: string): Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(this.url + "/recipes/search/" + search);
+  }
+
+  getUserRecipeSearch(search: string, uid: string): Observable<Recipe[]>{
+    return this.http.get<Recipe[]>(this.url + "/recipes/search/" + uid + "/" + search);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage';
@@ -12,21 +12,33 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
 export class DashboardComponent implements OnInit {
   constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
   recipes: Recipe[];
   userRecipes: Recipe[];
   user: User;
+  search: string;
 
+  
   getRecipes() : void {
     this.recipeService.getRecipes().subscribe(
+      r => this.recipes = r
+    );
+    this.search = ""
+  }
+  
+  searchRecipes(search) : void { 
+    this.recipeService.getRecipeSearch(search).subscribe(
       r => this.recipes = r
     );
   }
 
   saveRecipe(recipe): void {
-    this.recipeService.saveRecipe(recipe, this.user.uid).subscribe(
+    let dateObject = {timeStamp: new Date}
+    this.recipeService.saveRecipe(recipe, this.user.uid, dateObject).subscribe(
       r => this.getUserRecipes());
   }
 
@@ -36,6 +48,7 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  
   ngOnInit() {
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };
@@ -43,4 +56,7 @@ export class DashboardComponent implements OnInit {
       this.getRecipes();
     });
   }
+
+
+
 }

@@ -9,4 +9,6 @@ export class Recipe {
     difficulty: string;
     servingSize: number;
     imageLink: string;
+    date: string;
+    timeStamp: string;
 }

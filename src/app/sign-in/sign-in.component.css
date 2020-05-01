@@ -1,5 +1,21 @@
-.signInButtons {
+
+.main-div {
+    height: 75%;
     display: flex;
     justify-content: center;
-    
+    align-items: center;  
+    text-align: center;
 }
+
+.center {
+    width: 50%;
+    max-width: 500px;
+    margin: auto;
+    background-color: #e6e7e8;
+}
+
+img {
+    background-image: url('/assets/images/logo3.PNG/');
+    background-size: cover;
+}
+

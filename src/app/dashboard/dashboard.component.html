@@ -1,6 +1,12 @@
-<app-nav-bar></app-nav-bar>
+<!DOCTYPE html>
 
-<p>dashboard works!</p>
+<app-nav-bar></app-nav-bar>
+<br>
+<br>
+<br>
+
+<!-- <p>dashboard works!</p> -->
+
 
 <!-- Saved recipes -->
 <p>Saved</p>
@@ -18,7 +24,6 @@
       <td><a [routerLink]="['/savedrecipes', userRecipe.id]">View</a></td>
     </tr>
     <td>
-      <!-- update with new routing for add recipe component -->
       <button routerLink="/addrecipe">Create New Recipe</button>
     </td>
   </tbody>
@@ -26,8 +31,18 @@
 
   <button [routerLink]="['/savedrecipes']">View All</button>
 
+
+
+
 <!-- All recipes -->
 <p>All</p>
+
+<form>
+  <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+</form>
+<button (click)="searchRecipes(search)">Search</button>
+<button (click)="getRecipes()">Clear</button>
+
 <table>
     <thead>
       <th>Name</th>
@@ -43,5 +58,51 @@
         <button (click)="saveRecipe(recipe.id)">Save Recipe</button>
       </tr>
     </tbody>
-</table>
+</table> -->
 
+<!-- <mat-card class="savedDashboard">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title *ngFor="let userRecipe of userRecipes">{{recipe.name}}</mat-card-title>
+    <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{recipe.imageLink}}" alt="Recipe Image">
+  <mat-card-content>
+    <p>
+      
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>See More</button>
+    <button mat-button>Save</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <br>
+  <br>
+  <mat-grid-list cols="5" rowHeight="400px">
+    <mat-grid-tile *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+          <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <a [routerLink]="['/recipes', recipe.id]">See More</a>
+              </button>
+            </mat-menu>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+          <button (click)="saveRecipe(recipe.id)" mat-raised-button>Save Recipe</button>
+        </mat-card-content>
+        <img mat-card-image src={{recipe.imageLink}}>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -29,6 +29,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDialogComponent } from './user-dialog/user-dialog.component'
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FooterComponent } from './footer/footer.component'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatSidenavModule } from '@angular/material/sidenav'
+
 
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
@@ -39,6 +57,10 @@ import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list'
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+
+
+
+
 
 
 
@@ -55,7 +77,8 @@ import {MatMenuModule} from '@angular/material/menu';
     RecipebookDetailComponent,
     RecipeDetailsComponent,
     RecipeEditComponent,
-    AddRecipeComponent
+    AddRecipeComponent, 
+    UserDialogComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -73,19 +96,33 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatMenuModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatCardModule,
+
     MatGridListModule,
     MatIconModule,
     MatMenuModule
 
+    MatDialogModule,
+    MatToolbarModule,
+    MatSidenavModule
+
+
 
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent, RecipesListComponent, SignInComponent]
+  bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents: [UserDialogComponent]
 })
 export class AppModule { }

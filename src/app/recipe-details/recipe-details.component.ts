@@ -34,7 +34,8 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   saveRecipe(): void {
-    this.recipeService.saveRecipe(this.recipe.id, this.user.uid).subscribe(
+    let dateObject = {timeStamp: new Date}
+    this.recipeService.saveRecipe(this.recipe.id, this.user.uid, dateObject).subscribe(
       r => this.router.navigate(['savedrecipes/' + r]));
   }
 
@@ -51,4 +52,3 @@ export class RecipeDetailsComponent implements OnInit {
     })
   }
 }
-
