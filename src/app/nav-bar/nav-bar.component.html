@@ -1,6 +1,17 @@
-<nav>
-    <a class="far-left" routerLink="/dashboard">SotLot logo</a>
-    <a class="right-1" routerLink="/savedrecipes">My Recipes</a>
-    <a class="right-2" routerLink="/addrecipe">Add Recipe</a>
-    <a class="far-right" (click)="openDialog()">My Account</a>
-</nav>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div class="pointer" routerLink="/dashboard">
+            <mat-icon class="icon">dashboard</mat-icon><span>Some of This, Little of That</span>
+        </div>
+        <span class="spacer"></span>
+        <div class="pointer" routerLink="/savedrecipes">
+            <mat-icon class="icon">favorite</mat-icon><span class="tabHide">Saved Recipes</span>
+        </div>
+        <div class="pointer" routerLink="/addrecipe">
+            <mat-icon class="icon">add</mat-icon><span class="tabHide">Add Recipe</span>
+        </div>
+        <div class="pointer" (click)="openDialog()">
+            <mat-icon class="icon">person</mat-icon><span class="tabHide">Account</span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
