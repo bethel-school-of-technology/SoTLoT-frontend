@@ -35,8 +35,10 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatChipsModule } from '@angular/material/chips'
-
-
+import { MatCardModule } from '@angular/material/card'
+import { MatGridListModule } from '@angular/material/grid-list'
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -75,9 +77,13 @@ import { MatChipsModule } from '@angular/material/chips'
     MatCheckboxModule,
     MatChipsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
+    MatIconModule,
+    MatMenuModule
 
-    
+
   ],
   providers: [RecipeService, AuthService],
   bootstrap: [AppComponent, RecipesListComponent, SignInComponent]

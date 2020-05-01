@@ -1,32 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 <app-nav-bar></app-nav-bar>
-
-<img src={{recipe.imageLink}}>
-
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Ingredients</th>
-    <th>Instructions</th>
-    <th>Cook Time</th>
-    <th>Difficulty</th>
-    <th>Serving Size</th>
-
-  </thead>
-  <tbody>
-
-    <tr>
-
-      <td>{{recipe.name}}</td>
-      <td>{{recipe.desc}}</td>
-      <td>{{recipe.ingredients}}</td>
-      <td>{{recipe.instructions}}</td>
-      <td>{{recipe.cookTime}}</td>
-      <td>{{recipe.difficulty}}</td>
-      <td>{{recipe.servingSize}}</td>
-    
-      <button (click)="saveRecipe()">Save Recipe</button>
-  </tr>
-  </tbody>
-</table>
-
+<br/>
+<body class="bg">
+<mat-card class="recipeDetails">
+  <mat-card-header>
+    <mat-card-title class="card-container-center">{{recipe.name}}</mat-card-title>
+    <br>
+    <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{recipe.imageLink}}>
+  <h3>Difficulty: {{recipe.difficulty}}</h3>
+    <h3>Serving Size: {{recipe.servingSize}}</h3>
+    <h3>Ingredients    <mat-icon>restaurant</mat-icon></h3>
+  <mat-card-content class="card-container-left">
+    <ul *ngFor="let ingredients of recipe.ingredients">
+      <li>{{ingredients}}</li>
+    </ul>
+    </mat-card-content>
+    <h3>Instructions    <mat-icon>menu_book</mat-icon></h3>
+    <mat-card-content class="card-container-left">
+    <ul *ngFor="let instructions of recipe.instructions">
+      <li>{{instructions}}</li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="saveRecipe()">SAVE</button>
+  </mat-card-actions>
+</mat-card>
+</body>
+</html>

@@ -6,6 +6,8 @@ import { AngularFireModule } from '@angular/fire'
 import { AuthService } from '../auth.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'firebase';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +22,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe: Recipe;
   user: User;
+  ingredients: Recipe[]
+  instructions: Recipe[]
+
+
 
   getRecipe(): void {
     this.recipeService.getRecipe(this.recipe.id).subscribe(
@@ -31,6 +37,7 @@ export class RecipeDetailsComponent implements OnInit {
     this.recipeService.saveRecipe(this.recipe.id, this.user.uid).subscribe(
       r => this.router.navigate(['savedrecipes/' + r]));
   }
+
 
   ngOnInit() {
     this.authService.afAuth.authState.subscribe( userdata => {

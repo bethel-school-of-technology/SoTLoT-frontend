@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../shared/services/user';
+import { FormsModule, FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -25,7 +26,8 @@ if (confirm("Are you sure you want to delete this recipe? This request cannot be
 
   recipe: Recipe;
   user: User;
-
+  ingredients: Recipe[]
+  instructions: Recipe[]
 
   ngOnInit() {
 
@@ -34,7 +36,7 @@ if (confirm("Are you sure you want to delete this recipe? This request cannot be
       this.route.params.subscribe( param => {
         this.recipeService.getUserRecipe(param["id"], this.user.uid)
         .subscribe(r => (this.recipe = r)
-  
+
         )
       })
     });

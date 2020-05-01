@@ -1,38 +1,39 @@
-<app-nav-bar></app-nav-bar>
 
-<p>recipebook-detail works!</p>
-
-  <img src={{recipe.imageLink}}>
-
-<table>
-    <thead>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Ingredients</th>
-      <th>Instructions</th>
-      <th>Cook Time</th>
-      <th>Difficulty</th>
-      <th>Serving Size</th>
-
-
-    </thead>
-    <tbody>
-      <tr>
-
-        <td>{{recipe.name}}</td>
-        <td>{{recipe.desc}}</td>
-        <td>{{recipe.ingredients}}</td>
-        <td>{{recipe.instructions}}</td>
-        <td>{{recipe.cookTime}}</td>
-        <td>{{recipe.difficulty}}</td>
-        <td>{{recipe.servingSize}}</td>
-     
-
-        <td>
-          <!-- Update to route to edit component and use recipe.id as a param -->
-            <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button>Edit</button></a>
-            <button (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</button>
-        </td>
-      </tr>
-    </tbody> 
-  </table>
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <app-nav-bar></app-nav-bar>
+  <br/>
+  <body class="bg">
+  <mat-card class="recipeBookDetails">
+    <mat-card-header>
+      <mat-card-title class="card-container-center">{{recipe.name}}</mat-card-title>
+      <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{recipe.imageLink}}>
+    <p>Difficulty: {{recipe.difficulty}}</p><mat-icon>restaurant</mat-icon>
+      <p>Serving Size: {{recipe.servingSize}}</p>
+    <mat-card-content class="card-container-left">
+      <h3>Ingredients</h3>
+    <ul *ngFor="let ingredients of recipe.ingredients">
+      <li>{{ingredients}}</li>
+    </ul>
+    <br>
+    </mat-card-content>
+    <h3>Instructions    <mat-icon>menu_book</mat-icon></h3>
+    <mat-card-content class="card-container-left">
+    <ul *ngFor="let instructions of recipe.instructions">
+      <li>{{instructions}}</li>
+    </ul>
+  </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</button>
+      <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button mat-raised-button>Edit</button></a>
+    </mat-card-actions>
+  </mat-card>
+  </body>
+  </html>
