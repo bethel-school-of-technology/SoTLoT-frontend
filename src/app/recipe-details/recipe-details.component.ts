@@ -17,13 +17,13 @@ import { FormsModule, FormGroup, FormBuilder, FormArray, FormControl } from '@an
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  recipes: Recipe[]
+  
   constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   recipe: Recipe;
   user: User;
-  ingredients: Recipe[]
-  instructions: Recipe[]
+  ingredients: Array<string>;
+  instructions: Array<string>;
 
 
 

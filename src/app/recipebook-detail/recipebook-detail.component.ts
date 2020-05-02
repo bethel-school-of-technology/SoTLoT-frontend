@@ -26,8 +26,8 @@ if (confirm("Are you sure you want to delete this recipe? This request cannot be
 
   recipe: Recipe;
   user: User;
-  ingredients: Recipe[]
-  instructions: Recipe[]
+  ingredients: Array<string>;
+  instructions: Array<string>;
 
   ngOnInit() {
 

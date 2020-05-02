@@ -12,24 +12,34 @@
   <mat-card class="recipeBookDetails">
     <mat-card-header>
       <mat-card-title class="card-container-center">{{recipe.name}}</mat-card-title>
+      <br>
       <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src={{recipe.imageLink}}>
-    <p>Difficulty: {{recipe.difficulty}}</p><mat-icon>restaurant</mat-icon>
-      <p>Serving Size: {{recipe.servingSize}}</p>
-    <mat-card-content class="card-container-left">
+    <h3>Serving Size: {{recipe.servingSize}}</h3>
+    <div class="divider"> 
+      <mat-icon class="dividerIcon">schedule</mat-icon>
+    </div>
+    <h3>Cook Time: {{recipe.cookTime}}</h3>
+    <h3>Difficulty: {{recipe.difficulty}}</h3>
+    <div class="divider"> 
+      <mat-icon class="dividerIcon">restaurant</mat-icon>
+    </div>
       <h3>Ingredients</h3>
-    <ul *ngFor="let ingredients of recipe.ingredients">
-      <li>{{ingredients}}</li>
-    </ul>
-    <br>
-    </mat-card-content>
-    <h3>Instructions    <mat-icon>menu_book</mat-icon></h3>
     <mat-card-content class="card-container-left">
-    <ul *ngFor="let instructions of recipe.instructions">
-      <li>{{instructions}}</li>
-    </ul>
-  </mat-card-content>
+      <ul >
+        <li *ngFor="let ingredients of recipe.ingredients">{{ingredients}}</li>
+      </ul>
+      </mat-card-content>
+      <div class="divider"> 
+        <mat-icon class="dividerIcon">menu_book</mat-icon>
+      </div>
+      <h3>Instructions</h3>
+      <mat-card-content class="card-container-left">
+      <ol>
+        <li *ngFor="let instructions of recipe.instructions">{{instructions}}</li>
+      </ol>
+    </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</button>
       <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button mat-raised-button>Edit</button></a>

@@ -15,19 +15,29 @@
     <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src={{recipe.imageLink}}>
+  <h3>Serving Size: {{recipe.servingSize}}</h3>
+  <div class="divider"> 
+    <mat-icon class="dividerIcon">schedule</mat-icon>
+  </div>
+  <h3>Cook Time: {{recipe.cookTime}}</h3>
   <h3>Difficulty: {{recipe.difficulty}}</h3>
-    <h3>Serving Size: {{recipe.servingSize}}</h3>
-    <h3>Ingredients    <mat-icon>restaurant</mat-icon></h3>
+  <div class="divider"> 
+    <mat-icon class="dividerIcon">restaurant</mat-icon>
+  </div>
+    <h3>Ingredients</h3>
   <mat-card-content class="card-container-left">
-    <ul *ngFor="let ingredients of recipe.ingredients">
-      <li>{{ingredients}}</li>
+    <ul >
+      <li *ngFor="let ingredients of recipe.ingredients">{{ingredients}}</li>
     </ul>
     </mat-card-content>
-    <h3>Instructions    <mat-icon>menu_book</mat-icon></h3>
+    <div class="divider"> 
+      <mat-icon class="dividerIcon">menu_book</mat-icon>
+    </div>
+    <h3>Instructions</h3>
     <mat-card-content class="card-container-left">
-    <ul *ngFor="let instructions of recipe.instructions">
-      <li>{{instructions}}</li>
-    </ul>
+    <ol>
+      <li *ngFor="let instructions of recipe.instructions">{{instructions}}</li>
+    </ol>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="saveRecipe()">SAVE</button>

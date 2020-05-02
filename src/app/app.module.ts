@@ -48,20 +48,6 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 
 
-import { MatInputModule } from '@angular/material/input'
-import { MatSelectModule } from '@angular/material/select'
-import { MatButtonModule } from '@angular/material/button'
-import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatChipsModule } from '@angular/material/chips'
-import { MatCardModule } from '@angular/material/card'
-import { MatGridListModule } from '@angular/material/grid-list'
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-
-
-
-
-
 
 
 
@@ -111,7 +97,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
     MatGridListModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
 
     MatDialogModule,
     MatToolbarModule,
