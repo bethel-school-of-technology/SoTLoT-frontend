@@ -43,7 +43,7 @@
 <button (click)="searchRecipes(search)">Search</button>
 <button (click)="getRecipes()">Clear</button>
 
-<table>
+<!-- <table>
     <thead>
       <th>Name</th>
       <th>Description</th>
@@ -99,7 +99,7 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>Card Content Here</div>
-          <button (click)="saveRecipe(recipe.id)" mat-raised-button>Save Recipe</button>
+          <button class="mat-raised-button mat-primary" (click)="saveRecipe(recipe.id)">Save Recipe</button>
         </mat-card-content>
         <img mat-card-image src={{recipe.imageLink}}>
       </mat-card>

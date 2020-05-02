@@ -8,5 +8,5 @@
         <p><strong>{{user.email}}</strong></p>
     </div>
     <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="authService.SignOut()">Log Out</button>
+    <button mat-dialog-close class="mat-raised-button mat-primary"(click)="authService.SignOut()">Log Out</button>
 </mat-dialog-content>
