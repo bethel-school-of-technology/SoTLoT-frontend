@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { AuthService } from './auth.service';
 import { User } from './shared/services/user'
+import { unescapeIdentifier } from '@angular/compiler';
 
 
 @Injectable({
@@ -52,7 +53,7 @@ export class RecipeService {
   updateRecipe (recipe: Recipe, uid: string, recipeID: string): Observable<Recipe>{
     return this.http.post<Recipe>(this.url + '/update/' + uid + "/" + recipeID, recipe);
   }
-  
+
   addRecipe(recipe: object, uid: string): Observable<object>{
     return this.http.post<object>(this.url + "/users/newrecipe/" + uid, recipe);
   }

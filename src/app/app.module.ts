@@ -95,12 +95,17 @@ import { MatSidenavModule } from '@angular/material/sidenav'
     MatInputModule,
     MatSelectModule,
     MatCardModule,
+
+    MatGridListModule,
+    MatIconModule,
+    MatMenuModule,
+
     MatDialogModule,
     MatToolbarModule,
     MatSidenavModule
 
 
-    
+
   ],
   providers: [RecipeService, AuthService],
   bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
