@@ -7,11 +7,15 @@
   <title>SoTLoT</title>
 </head>
 <body class="bg">
-  <div class="main-div">
-    <mat-card class="center">
-      <img mat-card-image src="/assets/images/logo3.PNG/">
-      <button class="continue" mat-raised-button color="primary" (click)="authService.GoogleAuth()">Continue With Google</button>
-    </mat-card>
+  <div class="container">
+    <div class="sliding-background">
+      <div class="main-div">
+        <mat-card class="center">
+          <img mat-card-image src="/assets/images/logo3.PNG/">
+          <button class="continue" mat-raised-button color="primary" (click)="authService.GoogleAuth()">Continue With Google</button>
+        </mat-card>
+      </div>
+    </div>
   </div>
 </body>
 </html>

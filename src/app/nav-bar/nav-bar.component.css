@@ -1,26 +1,13 @@
-/* a.right-1{
-    display: inline-block;
-    text-align: right;
-    width: 60%;
-}
 
-a.right-2 {
-    display: inline-block;
-    text-align: right;
-    width: 10%;
+.pointer span {
+    color: white;
 }
-
-a.far-right {
-    display: inline-block;
-    text-align: right;
-    width: 20%;
-    margin-left: 0;
-} */
 
 .icon {
     margin: 0 10px 0 0;
     position: relative; 
     top:4px;
+    color: white;
   }
   
   .spacer {
