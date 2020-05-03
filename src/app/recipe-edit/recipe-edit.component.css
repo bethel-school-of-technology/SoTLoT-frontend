@@ -1,8 +1,99 @@
-form {
+/* form {
     margin-left: 20px
+} */
+
+.recipeDetails {
+    max-width: 500px;
+    text-align: center;
+    height: auto;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-button {
-    margin-left: 20px;
-    margin-bottom: 5px;
+img {
+    max-width: 100%;
+    min-height: 350px;
+    border-radius: 50px;
+}
+
+.card-container-center {
+    text-align: center;
+}
+
+.card-container-left {
+    text-align: left;
+}
+
+.divider {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #00C853;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.divider .dividerIcon {
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+    top: 12px;
+}
+
+li {
+    padding: 6px 0;
+}
+
+.remove {
+    padding-left: 20px;
+}
+
+.delete:hover {
+    background-color: rgb(167, 7, 7);
+    color: white;
+}
+
+.add-button:hover {
+    background-color: rgb(8, 112, 34);
+}
+
+.accept:hover {
+    background-color: green;
+    color: white;
+}
+
+.cancel:hover {
+    background-color: gray;
+    color: white;
+}
+
+.full {
+    width: 60%;
+}
+
+.add-button {
+    color: white;
+    margin-bottom:20px;
+}
+
+textarea {
+    resize: none;
+}
+
+@media ( max-width : 992px) {
+    .recipeDetails {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+@media ( max-width : 400px) {
+    .recipeDetails {
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
