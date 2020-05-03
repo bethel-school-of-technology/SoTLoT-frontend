@@ -43,10 +43,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FooterComponent } from './footer/footer.component'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { FooterComponent } from './footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 
@@ -102,9 +104,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
     MatDialogModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
 
-
+    MatSnackBarModule
 
   ],
   providers: [RecipeService, AuthService],
