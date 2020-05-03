@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
 import { User } from '../shared/services/user'
 import { Router, ActivatedRoute } from '@angular/router';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +16,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 export class DashboardComponent implements OnInit {
-  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private recipeService: RecipeService, public authService: AuthService, private router: Router, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.Handset
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   recipes: Recipe[];
   userRecipes: Recipe[];
   user: User;
   search: string;
+  public isMobile: boolean = false;
 
   
   getRecipes() : void {
@@ -48,7 +56,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  
   ngOnInit() {
     this.authService.afAuth.authState.subscribe( userdata => {
       if (userdata) { this.user = userdata };

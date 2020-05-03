@@ -4,7 +4,8 @@ import { Recipe } from '../recipe.model';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
-import { User } from '../shared/services/user'
+import { User } from '../shared/services/user';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
 
 @Component({
@@ -18,8 +19,15 @@ export class SavedRecipesComponent implements OnInit {
   user: User;
   userRecipes: Recipe[];
   search: string;
+  public isMobile: boolean = false;
 
-    constructor(private recipeService: RecipeService, public authService: AuthService) { }
+    constructor(private recipeService: RecipeService, public authService: AuthService, private breakpointObserver: BreakpointObserver) {
+      breakpointObserver.observe([
+        Breakpoints.Handset
+      ]).subscribe(result => {
+        this.isMobile = result.matches;
+      });
+    }
 
     getUserRecipes() : void {
       this.recipeService.getUserRecipes(this.user.uid).subscribe(
