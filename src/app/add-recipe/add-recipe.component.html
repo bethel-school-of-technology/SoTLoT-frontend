@@ -12,15 +12,15 @@
             <input matInput required placeholder="Recipe Name" formControlName="name">
         </mat-form-field><br>
         <mat-form-field class="full">
-            <textarea matInput required placeholder="Description" formControlName="desc"></textarea>
+            <textarea matInput required cdkTextareaAutosize placeholder="Description" formControlName="desc"></textarea>
         </mat-form-field><br>
         <mat-form-field class="full">
-            <input matInput required placeholder="Image URL" formControlName="imageLink">
+            <textarea matInput required cdkTextareaAutosize placeholder="Image URL" formControlName="imageLink"></textarea>
         </mat-form-field>
         <h6>To load you own image, using a hosting site like <a href="https://www.imgur.com">Imgur.com</a> and paste the
             link above.</h6>
         <h6>If working, your image will display below:</h6>
-        <img src={{newRecipe.value.imageLink}}><br>
+        <img src={{newRecipe.value.imageLink}}><br><br>
         <mat-form-field class="full">
             <input type="number" required matInput placeholder="Serving Size" formControlName="servingSize">
         </mat-form-field>
@@ -32,7 +32,13 @@
             <input matInput required placeholder="Cook Time" formControlName="cookTime">
         </mat-form-field><br>
         <mat-form-field class="full">
-            <input matInput required placeholder="Difficulty" formControlName="difficulty">
+            <mat-label>Difficulty</mat-label>
+            <mat-select required formControlName="difficulty" value="">
+                <mat-option value="Easy">Easy</mat-option>
+                <mat-option value="Moderate">Moderate</mat-option>
+                <mat-option value="Hard">Hard</mat-option>
+                <mat-option value="Expert">Expert</mat-option>
+              </mat-select>
         </mat-form-field>
 
         <div class="divider">
@@ -46,7 +52,7 @@
 
 
                     <mat-form-field class="xs">
-                        <textarea matInput required placeholder="Ingredient {{i +1}})"
+                        <textarea matInput required cdkTextareaAutosize placeholder="Ingredient {{i +1}})"
                             [formControl]="ingredientForms.controls[i]"></textarea>
                     </mat-form-field>
 
@@ -72,7 +78,7 @@
 
 
                     <mat-form-field class="xs">
-                        <textarea matInput required placeholder="Instruction {{i +1}})"
+                        <textarea matInput cdkTextareaAutosize required placeholder="Instruction {{i +1}})"
                             [formControl]="instructionForms.controls[i]"></textarea>
                     </mat-form-field>
 
