@@ -28,6 +28,7 @@
         <div class="divider">
             <mat-icon class="dividerIcon">schedule</mat-icon>
         </div>
+        <h3>Commitment</h3>
         <mat-form-field class="full">
             <input matInput required placeholder="Cook Time" formControlName="cookTime">
         </mat-form-field><br>
@@ -56,12 +57,12 @@
                             [formControl]="ingredientForms.controls[i]"></textarea>
                     </mat-form-field>
 
-                    <button mat-raised-button (click)="deleteIngredient(i)">
+                    <button class="delete" mat-raised-button (click)="deleteIngredient(i)">
                         <mat-icon class="icon">remove</mat-icon>Remove
                     </button>
 
                 </div>
-                <button mat-raised-button required color="primary" (click)="addIngredient()"><span>
+                <button mat-raised-button class="add-button" required color="primary" (click)="addIngredient()"><span>
                         <mat-icon class="icon">add</mat-icon>Add Ingredient
                     </span></button>
 
@@ -84,13 +85,13 @@
 
                 </div>
 
-                <button mat-raised-button required (click)="deleteInstruction()">
+                <button class="delete" mat-raised-button required (click)="deleteInstruction()">
                     <mat-icon class="icon">remove</mat-icon>Remove Last Instruction
                 </button>
 
 
             </div>
-            <button mat-raised-button color="primary" (click)="addInstruction()"><span>
+            <button mat-raised-button class="add-button" color="primary" (click)="addInstruction()"><span>
                     <mat-icon class="icon">add</mat-icon>Add Instruction
                 </span></button>
 
@@ -102,9 +103,8 @@
     </form>
 
     <mat-card-actions>
-        <button mat-raised-button (click)=backClicked()>Cancel</button>
-        <button mat-raised-button color="primary" (click)="addRecipe()"><span>Submit</span></button>
-        <br><br>
-        <mat-card-subtitle>*All fields are required</mat-card-subtitle>
+        <button class="cancel" mat-raised-button (click)=backClicked()>Cancel</button>
+        <button class="submit" mat-raised-button color="primary" (click)="addRecipe()"><span>Submit</span></button>
     </mat-card-actions>
+    <mat-card-subtitle>*All fields are required</mat-card-subtitle>
 </mat-card>

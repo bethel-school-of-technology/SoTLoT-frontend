@@ -16,6 +16,8 @@ button span mat-icon {
     top: 6px;
 }
 
+
+
 .recipeDetails {
     max-width: 500px;
     text-align: center;
@@ -24,7 +26,7 @@ button span mat-icon {
     width: 50%;
     margin: auto;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 @media (max-width: 992px) {
     .recipeDetails {
@@ -34,6 +36,7 @@ button span mat-icon {
     }
 }
 
+
 @media (max-width: 400px) {
     .recipeDetails {
         width: 100%;
@@ -41,8 +44,6 @@ button span mat-icon {
         margin-bottom: 0px;
     }
 }
-
-
 
 .divider {
     width: 100%; 
@@ -59,6 +60,8 @@ button span mat-icon {
     top: 12px;
 }
 
+
+
 img {
     max-width: 100%;
     min-height: auto;
@@ -67,4 +70,22 @@ img {
 
 .mat-form-field{
     width:300px !important;
+}
+
+.delete:hover {
+    background-color: rgb(167, 7, 7);
+    color: white;
+}
+
+.add-button:hover {
+    background-color: rgb(8, 112, 34);
+}
+
+.submit:hover {
+    background-color: green;
+    color: white;
+}
+.cancel:hover {
+    background-color:gray;
+    color: white;
 }
