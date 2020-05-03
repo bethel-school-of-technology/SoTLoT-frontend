@@ -51,8 +51,9 @@ addInstruction() {
   this.instructionForms.push(new FormControl(''));
 }
 
-deleteInstruction(i) {
-  this.instructionForms.removeAt(i)
+deleteInstruction() {
+  let length = this.instructionForms.length
+  this.instructionForms.removeAt(length-1)
 }
 
 get instructionForms() {
@@ -74,7 +75,7 @@ get instructionForms() {
       instructions: this.fb.array([""]),
       cookTime: "",
       difficulty: "",
-      servingSize: 0,
+      servingSize: "",
       imageLink: "",
       timeStamp: date
 
