@@ -3,105 +3,87 @@
 <app-nav-bar></app-nav-bar>
 <br>
 <br>
-<br>
-
-<!-- <p>dashboard works!</p> -->
-
 
 <!-- Saved recipes -->
-<p>Saved</p>
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Image</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let userRecipe of userRecipes">
-      <td>{{userRecipe.name}}</td>
-      <td>{{userRecipe.desc}}</td>
-      <td>{{userRecipe.imageLink}}</td>
-      <td><a [routerLink]="['/savedrecipes', userRecipe.id]">View</a></td>
-    </tr>
-    <td>
-      <button routerLink="/addrecipe">Create New Recipe</button>
-    </td>
-  </tbody>
-</table>
-
-  <button [routerLink]="['/savedrecipes']">View All</button>
-
-
-
-
-<!-- All recipes -->
-<p>All</p>
-
-<form>
-  <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
-</form>
-<button (click)="searchRecipes(search)">Search</button>
-<button (click)="getRecipes()">Clear</button>
-
-<!-- <table>
-    <thead>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let recipe of recipes">
-        <td>{{recipe.name}}</td>
-        <td>{{recipe.desc}}</td>
-        <td>{{recipe.imageLink}}</td>
-        <td><a [routerLink]="['/recipes', recipe.id]">View</a></td>
-        <button (click)="saveRecipe(recipe.id)">Save Recipe</button>
-      </tr>
-    </tbody>
-</table> -->
-
-<!-- <mat-card class="savedDashboard">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title *ngFor="let userRecipe of userRecipes">{{recipe.name}}</mat-card-title>
-    <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{recipe.imageLink}}" alt="Recipe Image">
-  <mat-card-content>
-    <p>
-      
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>See More</button>
-    <button mat-button>Save</button>
-  </mat-card-actions>
-</mat-card> -->
-
+<h1 class="page-title">Dashboard</h1>
+<div class="buttons">
+<button class="createNew" mat-raised-button style="align-items: right, top" color="secondary" routerLink="/addrecipe">Create New Recipe</button>
+<button class="viewAll" mat-raised-button color="secondary" [routerLink]="['/savedrecipes']">View All</button>
+</div>
+<br>
+<br>
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+  <h1 class="mat-h1">Saved Recipes</h1>
   <br>
-  <br>
-  <mat-grid-list cols="5" rowHeight="400px">
-    <mat-grid-tile *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
+  <mat-grid-list cols="4" rowHeight="200px">
+    <mat-grid-tile *ngFor="let userRecipe of userRecipes; let i=index" [colspan]=1 [rowspan]=2>
+    <div *ngIf="i<5">
       <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>{{recipe.name}}</mat-card-title>
-          <mat-card-subtitle>{{recipe.desc}}</mat-card-subtitle>
+        <mat-card-header class="card-header">
+          <mat-card-title>{{userRecipe.name}}</mat-card-title>
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item>
-                <a [routerLink]="['/recipes', recipe.id]">See More</a>
+                <mat-icon class="icon">notes</mat-icon><span [routerLink]="['/savedrecipes', userRecipe.id]">See More</span>
               </button>
             </mat-menu>
         </mat-card-header>
+        <mat-card-content class="saved-card-content">
+        <a class="saved-card-image" [routerLink]="['/savedrecipes', userRecipe.id]">
+          <img mat-card-image src={{userRecipe.imageLink}}>
+        </a></mat-card-content>
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<br>
+<br>
+<div class="divider"> 
+  <mat-icon class="dividerIcon">menu_book</mat-icon>
+</div>
+
+<br>
+
+<!-- All recipes -->
+<h1 class="mat-h1">All Recipes</h1>
+
+<mat-form-field class="full">
+  <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+<mat-icon button class="search" aria-hidden="true" style="align-items: right" (click)="searchRecipes(search)">search</mat-icon>
+  <mat-icon button class="clear" aria-hidden="true" style="align-items: right" (click)="getRecipes()">clear</mat-icon>
+  
+
+<div class="grid-container">
+  <br>
+  <br>
+  <mat-grid-list cols="3" rowHeight="450px">
+    <mat-grid-tile *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
+      <mat-card class="dashboard-card">
+        <mat-card-header class="card-header">
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <mat-icon class="icon">notes</mat-icon><span [routerLink]="['/recipes', recipe.id]" aria-hidden="false">See More</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon class="icon" aria-hidden="false">favorite_border</mat-icon><span (click)="saveRecipe(recipe.id)">Save</span>
+              </button>
+            </mat-menu>
+        </mat-card-header>
+        <a class="mat-card-image" [routerLink]="['/recipes', recipe.id]">
+          <img mat-card-image src={{recipe.imageLink}}>
+        </a>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-          <button class="mat-raised-button mat-primary" (click)="saveRecipe(recipe.id)">Save Recipe</button>
+          <div class="card-desc" style="text-align: center;">{{recipe.desc}}</div>
         </mat-card-content>
-        <img mat-card-image src={{recipe.imageLink}}>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

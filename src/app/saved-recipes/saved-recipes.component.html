@@ -1,38 +1,51 @@
 <app-nav-bar></app-nav-bar>
 
-<form>
-  <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
-</form>
-<button (click)="searchUserRecipes(search)">Search</button>
-<button (click)="getUserRecipes()">Clear</button>
 
-<table>
-  <thead>
-    <td>Name</td>
-    <td>Description</td>
-    <td>Ingredients</td>
-  </thead>
-<tbody>
+<!-- Saved recipes -->
+<br>
+<br>
 
+<h1 class="page-title">Saved Recipes</h1>
+<br>
 
+<mat-form-field class="full">
+  <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+<mat-icon button class="search" aria-hidden="true" style="align-items: right" (click)="searchUserRecipes(search)">search</mat-icon>
+<mat-icon button class="clear" aria-hidden="true" style="align-items: right" (click)="getUserRecipes()">clear</mat-icon>
 
-   <!--Need to add ngFor loop-->
+<br>
+<br>
 
-   <tr *ngFor="let recipe of recipes"> <!--need to change function in service/ts-->
-
-    <td>{{recipe.name}}</td>
-    <td>{{recipe.desc}}</td>
-    <td>{{recipe.ingredients}}</td>
-
-    <td>
-      <a [routerLink]="['/savedrecipes', recipe.id]"><button>View</button></a>
-    </td>
-    <td>
-      <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button>Edit</button></a>
-    </td>
-    <td>
-      <button (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</button>
-    </td>
-
-</tbody>
-</table>
+<div class="grid-container">
+  <mat-grid-list cols="3" rowHeight="450px">
+    <mat-grid-tile *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
+      <mat-card class="saved-page-card">
+        <mat-card-header class="card-header">
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <mat-icon class="icon">notes</mat-icon><span [routerLink]="['/savedrecipes', recipe.id]">See More</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon class="icon">create</mat-icon><span [routerLink]="['/savedrecipes/edit', recipe.id ]">Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon class="icon">delete</mat-icon><span (click)="deleteUserRecipe(recipe.id, user.uid)">Delete</span>
+              </button>
+            </mat-menu>
+        </mat-card-header>
+        <mat-card-content class="saved-card-content">
+        <a class="mat-card-image" [routerLink]="['/savedrecipes', recipe.id]">
+          <img mat-card-image src={{recipe.imageLink}}>
+        </a></mat-card-content>
+        <mat-card-content class="dashboard-card-content">
+          <div class="card-desc" style="text-align: center;">{{recipe.desc}}</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

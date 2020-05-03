@@ -6,6 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AuthService} from '../auth.service';
 import { User } from '../shared/services/user'
 
+
 @Component({
   selector: 'app-saved-recipes',
   templateUrl: './saved-recipes.component.html',
@@ -15,6 +16,7 @@ export class SavedRecipesComponent implements OnInit {
 
   recipes: Recipe[];
   user: User;
+  userRecipes: Recipe[];
   search: string;
 
     constructor(private recipeService: RecipeService, public authService: AuthService) { }
