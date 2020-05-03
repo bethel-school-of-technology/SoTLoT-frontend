@@ -1,80 +1,175 @@
 <app-nav-bar></app-nav-bar>
 
-<hr>
-<h2>Edit Your {{editRecipe.name}} Recipe</h2>
+<br />
 
 <!-- For debugging purposes -->
-<div hidden>Value: {{editForm.value | json}}</div>
+<div hidden>Value: {{ editForm.value | json }}</div>
 
-<form [formGroup]="editForm">
+<mat-card class="recipeDetails">
+  <mat-card-header>
+    <mat-card-title>Edit  {{ editRecipe.name }}</mat-card-title>
+    <mat-card-subtitle>*All Fields are required</mat-card-subtitle>
+  </mat-card-header> 
 
-<mat-form-field class="full">
-   <input matInput placeholder="Recipe Name" formControlName="name">
-</mat-form-field>
+  <form [formGroup]="editForm">
+    <mat-form-field class="full">
+      <input matInput required placeholder="Recipe Name" formControlName="name" />
+    </mat-form-field>
 
-<br>
+    <br />
 
-<mat-form-field class="full">
-    <textarea matInput placeholder="Descrition" formControlName="desc"></textarea>
-</mat-form-field>
+    <mat-form-field class="full">
+      <textarea
+        cdkTextareaAutosize
+        matInput
+        required
+        placeholder="Description"
+        formControlName="desc"
+      ></textarea>
+    </mat-form-field>
 
-<br>
+    <br />
 
-<mat-form-field class="full">
-    <input matInput typ="number" placeholder="Serving Size" formControlName="servingSize">
-  </mat-form-field>
-
-  <br>
+<!-- ////////////////////// Image //////////////////////////////// -->
 
   <mat-form-field class="full">
-    <input matInput placeholder="Cook Time" formControlName="cookTime">
+    <input matInput required placeholder="Image URL" formControlName="imageLink" />
   </mat-form-field>
+  <h6>
+    To load you own image, using a hosting site like
+    <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.
+  </h6>
+  <h6>If working, your image will display below:</h6>
+  <img src="{{ editForm.value.imageLink }}" />
+<br>
+<br>
+    <mat-form-field class="full">
+      <input
+        matInput
+        required
+        type="number"
+        placeholder="Serving Size"
+        formControlName="servingSize"
+      />
+    </mat-form-field>
+    <br />
 
-<hr>
+ <!-- /////////////////////// Commitment /////////////////////////////// -->
 
-<div formArrayName="ingredients">
-    <div *ngFor="let ingredient of ingredientForm.controls; let i=index" [formGroupName]="i">
+    <div div class = "divider">
+        <mat-icon mat-icon   class = "dividerIcon" > schedule </mat-icon >
+    </div>
+    <h3>Commitment</h3>
+    <mat-form-field class="full">
+      <input matInput 
+      required placeholder="Cook Time" formControlName="cookTime" />
+    </mat-form-field>
 
+    <br />
 
-        <mat-form-field class="xs">
-            <input matInput placeholder="Ingredient {{i +1}}" [formControl]="ingredientForm.controls[i]">
+    <mat-form-field class="full">
+      <mat-label>Difficulty</mat-label>
+      <mat-select required formControlName="difficulty" value={{editRecipe.difficulty}}>
+        <mat-option value="Easy">Easy</mat-option>
+        <mat-option value="Moderate">Moderate</mat-option>
+        <mat-option value="Hard">Hard</mat-option>
+        <mat-option value="Expert">Expert</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- /////////////////////// Ingredients /////////////////////////////// -->
+
+    <div class="divider">
+      <mat-icon class="dividerIcon">restaurant</mat-icon>
+    </div>
+    <h3>Ingredients</h3>
+    <div formArrayName="ingredients">
+      <div
+        *ngFor="let ingredient of ingredientForm.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field class="full">
+          <input
+            matInput
+            required
+            placeholder="Ingredient {{ i + 1 }}"
+            [formControl]="ingredientForm.controls[i]"
+          />
         </mat-form-field>
 
-    
-        <button mat-raised-button color="warn" (click)="deleteIngredient(i)">Delete</button>
-
+        <span class="remove">
+          <button
+            class="delete"
+            mat-raised-button
+            (click)="deleteIngredient(i)"
+          >
+          <mat-icon>remove</mat-icon>Remove
+          </button>
+        </span>
+      </div>
     </div>
-</div>
-<button mat-raised-button color="primary" (click)="addIngredient()">Add Ingredient</button>
+    <button
+      class="add-button"
+      mat-raised-button
+      color="primary"
+      (click)="addIngredient()"
+    >
+      <mat-icon>add</mat-icon>Add Ingredient
+    </button>
 
-<hr>
+    <!-- /////////////////////// Instructions /////////////////////////////// -->
 
-<div formArrayName="instructions">
-    <div *ngFor="let instruction of instructionsForm.controls; let i=index" [formGroupName]="i">
+    <div class="divider">
+      <mat-icon class="dividerIcon">menu_book</mat-icon>
+    </div>
+    <h3>Instructions</h3>
 
 
-        <mat-form-field class="xs">
-            <textarea matInput placeholder="Instructions {{i +1}}" [formControl]="instructionsForm.controls[i]"></textarea>
+    <div formArrayName="instructions">
+      <div
+        *ngFor="let instruction of instructionsForm.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field class="full">
+          <textarea
+            cdkTextareaAutosize
+            matInput
+            required
+            placeholder="Instructions {{ i + 1 }}"
+            [formControl]="instructionsForm.controls[i]"
+          ></textarea>
         </mat-form-field>
-
-    
-        <button mat-raised-button color="warn" (click)="deleteInstructions(i)">Delete</button>
-
+      </div>
     </div>
-</div>
-<button mat-raised-button color="primary" (click)="addInstructions()">Add Instructions</button>
+    <span class="remove">
+      <button
+        class="delete"
+        mat-raised-button
+        
+        (click)="deleteInstruction()"
+      >
+      <mat-icon>remove</mat-icon> Remove Last Instruction
+      </button>
+    </span>
+    <br>
+    <br>
+    <button
+      class="add-button"
+      mat-raised-button
+      color="primary"
+      (click)="addInstructions()"
+    >
+    <mat-icon>add</mat-icon>Add Instruction
+    </button>
+  </form>
 
-<hr>
-
-<mat-form-field class="full">
-    <input  matInput placeholder="Image URL" formControlName="imageLink">
-</mat-form-field>
-<h6>To load you own image, using a hosting site like <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.</h6>
-<h6>If working, your image will display below:</h6>
-<img src={{editForm.value.imageLink}}>
-
-</form>
-
-<button (click)=backClicked()>Cancel</button>
-
-<button (click)="updateRecipe()">Save</button>
+  <mat-card-actions>
+    <button class="cancel" mat-raised-button (click)="backClicked()">
+      Cancel
+    </button>
+    <button class="accept" mat-raised-button (click)="updateRecipe()">
+      Save
+    </button>
+  </mat-card-actions>
+  <mat-card-subtitle>*All Fields are required</mat-card-subtitle>
+</mat-card>
