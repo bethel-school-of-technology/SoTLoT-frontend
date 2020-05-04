@@ -7,6 +7,7 @@
 
 .mat-h1 {
   font-weight: bold;
+  margin-left: 5%;
 }
 
 .divider {
@@ -113,5 +114,9 @@
 .favorite {
   position: sticky;
   bottom: 50px;
+}
+
+.full {
+  margin-left: 5%;
 }
 
