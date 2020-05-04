@@ -15,7 +15,6 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard/';
 import { environment } from '../environments/environment';
 
 import { ReactiveFormsModule } from "@angular/forms";
-import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipeService } from './recipe.service';
 import { RouterModule } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -43,10 +42,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FooterComponent } from './footer/footer.component'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { FooterComponent } from './footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 
@@ -55,7 +56,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     AppComponent,
-    RecipesListComponent,
     SignInComponent,
     SavedRecipesComponent,
     DashboardComponent,
@@ -102,13 +102,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
     MatDialogModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
 
-
+    MatSnackBarModule
 
   ],
   providers: [RecipeService, AuthService],
-  bootstrap: [AppComponent, RecipesListComponent, SignInComponent],
+  bootstrap: [AppComponent, SignInComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents: [UserDialogComponent]
 })
