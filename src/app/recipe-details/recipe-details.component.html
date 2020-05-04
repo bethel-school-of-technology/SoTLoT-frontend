@@ -8,12 +8,12 @@
   </mat-card-header>
   <img mat-card-image src={{recipe.imageLink}}>
   <h3>Serving Size: {{recipe.servingSize}}</h3>
-  <div class="divider"> 
+  <div class="divider">
     <mat-icon class="dividerIcon">schedule</mat-icon>
   </div>
   <h3>Cook Time: {{recipe.cookTime}}</h3>
   <h3>Difficulty: {{recipe.difficulty}}</h3>
-  <div class="divider"> 
+  <div class="divider">
     <mat-icon class="dividerIcon">restaurant</mat-icon>
   </div>
     <h3>Ingredients</h3>
@@ -22,7 +22,7 @@
       <li *ngFor="let ingredients of recipe.ingredients">{{ingredients}}</li>
     </ul>
     </mat-card-content>
-    <div class="divider"> 
+    <div class="divider">
       <mat-icon class="dividerIcon">menu_book</mat-icon>
     </div>
     <h3>Instructions</h3>
@@ -32,6 +32,6 @@
     </ol>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="saveRecipe()">SAVE</button>
+    <button class="save" color="primary" mat-raised-button (click)="saveRecipe()">SAVE</button>
   </mat-card-actions>
 </mat-card>
