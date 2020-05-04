@@ -8,17 +8,6 @@
   font-weight: bold;
 }
 
-.search {
-  cursor: pointer;
-  position: relative;
-  top: 6px;
-}
-
-.clear {
-  cursor: pointer;
-  position: relative;
-  top: 6px;
-}
 
 .dashboard-card {
   width: 500px;
@@ -90,3 +79,46 @@
 .full {
   margin-left: 5%;
 }
+
+.label-font, .input-text {
+  font-size: 20px;
+} 
+
+.accept, .cancel {
+  height: 30px;
+  margin-top: 10px;
+}
+
+.accept{
+  color: green;
+}
+
+.cancel{
+  color: gray;
+}
+
+.cancel:hover {
+  background-color: gray;
+  color: white;
+}
+
+.accept:hover {
+  background-color: green;
+  color: white;
+}
+
+.search, .clear {
+  margin-left: 4.4px;
+  padding-top: 3px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 6px;
+  background-color: white !important; 
+  width: 100%
+}
+
+mat-form-field.mat-form-field {
+  width: 20%;
+}
+
