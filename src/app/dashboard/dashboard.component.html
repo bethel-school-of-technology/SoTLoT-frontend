@@ -1,45 +1,65 @@
 <app-nav-bar></app-nav-bar>
 
-<br>
+<br />
 
 <!-- Saved recipes -->
 
-<h1 class="mat-h1">Saved Recipes</h1>
+<h1 class="mat-h1">Recently Saved Recipes</h1>
 <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="200px">
-  <mat-grid-tile class="saved-tile" *ngFor="let userRecipe of userRecipes | slice:0:5" [colspan]=1 [rowspan]=1>
-    <mat-card color="background" class="saved-dashboard-card"> 
+  <mat-grid-tile
+    class="saved-tile"
+    *ngFor="let userRecipe of userRecipes | slice: 0:5"
+    [colspan]="1"
+    [rowspan]="1"
+  >
+    <mat-card color="background" class="saved-dashboard-card">
       <a class="mat-card-image" [routerLink]="['/savedrecipes', userRecipe.id]">
-        <img class="saved-img" src="{{userRecipe.imageLink}}" alt="">
+        <img class="saved-img" src="{{ userRecipe.imageLink }}" alt="" />
       </a>
-      <button class="saved-container-center" mat-raised-button color="primary" [routerLink]="['/savedrecipes', userRecipe.id]">{{userRecipe.name}}</button>
+      <button
+        class="saved-container-center"
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/savedrecipes', userRecipe.id]"
+      >
+        {{ userRecipe.name }}
+      </button>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
 
-<div class="divider"> 
+<div class="divider">
   <mat-icon class="dividerIcon">menu_book</mat-icon>
 </div>
 
-<br>
+<br />
 
 <!-- All recipes -->
 <h1 class="mat-h1">All Recipes</h1>
 
-<mat-form-field class="full">
-  <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
-</mat-form-field>
-<mat-icon button class="search" aria-hidden="true" style="align-items: right" (click)="searchRecipes(search)">search</mat-icon>
-<mat-icon button class="clear" aria-hidden="true" style="align-items: right" (click)="getRecipes()">clear</mat-icon>
+  <mat-form-field appearance="outline" class=full>
+    <mat-label class="label-font" >Search</mat-label>
+    <input
+    matInput type="search"  class="input-text" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }"/>
+    <button class="accept" mat-button matSuffix mat-stroked-button  aria-label="search">
+      <mat-icon class="search" (click)="searchRecipes(search)">search</mat-icon>
+    </button>
+    <button class=cancel mat-button matSuffix mat-stroked-button >
+      <mat-icon class="clear" (click)="getRecipes()">clear</mat-icon>
+    </button>
+  </mat-form-field>
 
 <mat-grid-list [cols]="isMobile ? 1 : 3" rowHeight="600px">
   <mat-grid-tile class="tile" *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
     <mat-card color="background" class="dashboard-card">
-        <a class="mat-card-image" [routerLink]="['/recipes', recipe.id]">
-          <img class="all-img" src="{{recipe.imageLink}}" alt="">
-        </a>
-      <mat-card-title class="card-container-center">{{recipe.name}}</mat-card-title>
+      <a class="mat-card-image" [routerLink]="['/recipes', recipe.id]">
+        <img class="all-img" src="{{ recipe.imageLink }}" alt="" />
+      </a>
+      <mat-card-title class="card-container-center">{{
+        recipe.name
+      }}</mat-card-title>
       <mat-card-content class="desc">
-        <h3>{{recipe.desc}}</h3>
+        <h3>{{ recipe.desc }}</h3>
       </mat-card-content>
       <mat-card-actions>
         <button class="favorite" mat-fab color="primary" (click)="saveRecipe(recipe.id, 'Recipe Saved', '')"><mat-icon style="color: white;">favorite</mat-icon></button>

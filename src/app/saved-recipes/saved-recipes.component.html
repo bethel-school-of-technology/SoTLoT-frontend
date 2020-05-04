@@ -8,11 +8,18 @@
 <h1 class="page-title">Saved Recipes</h1>
 <br>
 
-<mat-form-field class="full">
-  <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
+<mat-form-field appearance="outline" class=full>
+  <mat-label class="label-font">Search</mat-label>
+    <input 
+    matInput type="search"  class="input-text" [(ngModel)]="search" [ngModelOptions]="{ standalone: true }"/>
+  <button class="accept" mat-button matSuffix mat-stroked-button  aria-label="search">
+    <mat-icon class="search" (click)="searchUserRecipes(search)">search</mat-icon>
+  </button>
+  <button class=cancel mat-button matSuffix mat-stroked-button >
+    <mat-icon class="clear" (click)="getUserRecipes()">clear</mat-icon>
+  </button>
 </mat-form-field>
-<mat-icon button class="search" aria-hidden="true" style="align-items: right" (click)="searchUserRecipes(search)">search</mat-icon>
-<mat-icon button class="clear" aria-hidden="true" style="align-items: right" (click)="getUserRecipes()">clear</mat-icon>
+
 
 <br>
 <br>
