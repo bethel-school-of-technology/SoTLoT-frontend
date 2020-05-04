@@ -35,3 +35,14 @@ img{
     display: none;
     }
 }
+
+.sticky{
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.contentPush{
+  height: 60px
+}
