@@ -21,7 +21,7 @@
 }
 
 .dashboard-card {
-  width: 400px;
+  width: 500px;
   border-color: #99deab;
   border-style: solid;
   border-width: 2px;
@@ -29,11 +29,12 @@
   padding-top: 0px;
   padding-left: 0px;
   padding-right: 0px;
-  height: 450px;
+  height: 500px;
 }
 
 .card-container-center{
   text-align: center;
+  padding-top: 5%;
 }
 
 .all-img {
@@ -51,13 +52,15 @@
   justify-content: center;
   align-content: center;
   text-align: center;
-  height: 500px;
+  height: 600px;
 }
 
 .desc {
   overflow: scroll;
   overflow-x: hidden;
   height: 45px;
+  margin-left: 5%;
+  margin-right: 5%
 }
 
 ::-webkit-scrollbar {

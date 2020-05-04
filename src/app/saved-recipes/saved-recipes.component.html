@@ -17,7 +17,7 @@
 <br>
 <br>
 
-<mat-grid-list [cols]="isMobile ? 1 : 3" rowHeight="500px">
+<mat-grid-list [cols]="isMobile ? 1 : 3" rowHeight="600px">
   <mat-grid-tile class="tile" *ngFor="let recipe of recipes" [colspan]=1 [rowspan]=1>
     <mat-card color="background" class="dashboard-card">
         <a class="mat-card-image" [routerLink]="['/savedrecipes', recipe.id]">
