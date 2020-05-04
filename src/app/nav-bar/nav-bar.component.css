@@ -5,11 +5,11 @@
 
 .icon {
     margin: 0 10px 0 0;
-    position: relative; 
+    position: relative;
     top:4px;
     color: white;
   }
-  
+
   .spacer {
     flex: 1 1 auto;
   }
@@ -19,6 +19,17 @@
     margin: 0 14px;
 }
 
+img{
+  height: 35px;
+  position: relative;
+  top:4px;
+}
+
+.title span{
+  position: relative;
+  bottom:6px;
+  left:15px;
+}
 @media (max-width: 992px) {
     .tabHide {
     display: none;

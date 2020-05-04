@@ -3,7 +3,7 @@
 } */
 
 .recipeDetails {
-    max-width: 500px;
+    max-width: 700px;
     text-align: center;
     height: auto;
     justify-content: center;
@@ -11,6 +11,10 @@
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    border-color: #99DEAB;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
 }
 
 img {
@@ -59,9 +63,12 @@ li {
     background-color: rgb(8, 112, 34);
 }
 
+.accept{
+  color:white;
+}
+
 .accept:hover {
     background-color: green;
-    color: white;
 }
 
 .cancel:hover {

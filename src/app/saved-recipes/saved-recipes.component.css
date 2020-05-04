@@ -76,6 +76,14 @@
   margin-top: 0px;
 }
 
+.create:hover {
+  background-color:green;
+}
+
+.delete:hover {
+  background-color:green;
+}
+
 .full {
   margin-left: 5%;
 }

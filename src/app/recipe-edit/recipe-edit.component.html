@@ -9,7 +9,7 @@
   <mat-card-header>
     <mat-card-title>Edit  {{ editRecipe.name }}</mat-card-title>
     <mat-card-subtitle>*All Fields are required</mat-card-subtitle>
-  </mat-card-header> 
+  </mat-card-header>
 
   <form [formGroup]="editForm">
     <mat-form-field class="full">
@@ -61,7 +61,7 @@
     </div>
     <h3>Commitment</h3>
     <mat-form-field class="full">
-      <input matInput 
+      <input matInput
       required placeholder="Cook Time" formControlName="cookTime" />
     </mat-form-field>
 
@@ -145,7 +145,7 @@
       <button
         class="delete"
         mat-raised-button
-        
+
         (click)="deleteInstruction()"
       >
       <mat-icon>remove</mat-icon> Remove Last Instruction
@@ -167,7 +167,7 @@
     <button class="cancel" mat-raised-button (click)="backClicked()">
       Cancel
     </button>
-    <button class="accept" mat-raised-button (click)="updateRecipe()">
+    <button class="accept" color="primary" mat-raised-button (click)="updateRecipe()">
       Save
     </button>
   </mat-card-actions>

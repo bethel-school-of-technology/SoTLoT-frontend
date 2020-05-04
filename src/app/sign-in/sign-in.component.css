@@ -5,14 +5,14 @@
     background-size: cover;
     background-position: top center;
     min-height: 100vh;
-    
+
   }
-  
+
 .main-div {
-    display: flex; 
+    display: flex;
     justify-content: center;
-    align-items: center;  
-    text-align: center;   
+    align-items: center;
+    text-align: center;
     animation: slide 60s linear infinite reverse;
     min-height: 100vh;
     width: 100%;
@@ -33,6 +33,7 @@
     width: inherit;
     justify-content: center;
     text-justify: auto;
+    color:white;
 }
 
 img {

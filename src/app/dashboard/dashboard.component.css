@@ -11,15 +11,15 @@
 }
 
 .divider {
-  width: 100%; 
-  text-align: center; 
-  border-bottom: 1px solid #00C853; 
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #00C853;
   line-height: 0.1em;
-  margin: 10px 0 20px; 
-} 
-.divider .dividerIcon { 
-   background:#dbdbdb; 
-   padding:0 10px; 
+  margin: 10px 0 20px;
+}
+.divider .dividerIcon {
+   background:#dbdbdb;
+   padding:0 10px;
    position: relative;
    top: 12px;
 }
@@ -64,6 +64,10 @@
   border-top-right-radius: 0px;
   height: 50px;
 
+}
+
+.saved-container-center:hover {
+  background-color:green;
 }
 
 .all-img {
@@ -114,6 +118,10 @@
 .favorite {
   position: sticky;
   bottom: 50px;
+}
+
+.favorite:hover {
+  background-color:green;
 }
 
 .full {
