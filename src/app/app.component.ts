@@ -11,4 +11,7 @@ import { Observable } from 'rxjs';
 
 export class AppComponent {
   title = 'SoTLoT';
+  onActivate(event) {
+    window.scroll(0,0)
+  }
 }
