@@ -7,6 +7,10 @@
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-color: #99DEAB;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
   }
 
   img {
@@ -47,13 +51,13 @@
 
   .edit:hover {
   background-color: green;
-  color: white;
 }
 
 
 .edit{
   position: relative;
   left: 3px;
+  color: white;
 }
 
 .delete{

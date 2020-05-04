@@ -19,7 +19,7 @@ button span mat-icon {
 
 
 .recipeDetails {
-    max-width: 500px;
+    max-width: 700px;
     text-align: center;
     height: auto;
     justify-content: center;
@@ -27,6 +27,10 @@ button span mat-icon {
     margin: auto;
     margin-top: 50px;
     margin-bottom: 20px;
+    border-color: #99DEAB;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
 }
 @media (max-width: 992px) {
     .recipeDetails {
@@ -46,16 +50,16 @@ button span mat-icon {
 }
 
 .divider {
-    width: 100%; 
-    text-align: center; 
-    border-bottom: 1px solid #00C853; 
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #00C853;
     line-height: 0.1em;
-    margin: 10px 0 20px; 
-} 
+    margin: 10px 0 20px;
+}
 
-.divider .dividerIcon { 
-    background:#fff; 
-    padding:0 10px; 
+.divider .dividerIcon {
+    background:#fff;
+    padding:0 10px;
     position: relative;
     top: 12px;
 }

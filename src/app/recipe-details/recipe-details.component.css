@@ -45,8 +45,11 @@ li {
 }
 
 .save:hover {
-  background-color:white;
-  color:green;
+  background-color:green;
+}
+
+.save{
+  color:white;
 }
 
 
