@@ -1,6 +1,7 @@
 .page-title {
   font-weight: bolder;
   font-size: 40px;
+  margin-left: 5%;
 }
 
 .mat-h1 {
@@ -73,4 +74,8 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 0px;
+}
+
+.full {
+  margin-left: 5%;
 }
