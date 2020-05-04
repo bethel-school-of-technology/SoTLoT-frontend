@@ -7,13 +7,18 @@
 
 <mat-card class="recipeDetails">
   <mat-card-header>
-    <mat-card-title>Edit  {{ editRecipe.name }}</mat-card-title>
+    <mat-card-title>Edit {{ editRecipe.name }}</mat-card-title>
     <mat-card-subtitle>*All Fields are required</mat-card-subtitle>
   </mat-card-header>
 
   <form [formGroup]="editForm">
     <mat-form-field class="full">
-      <input matInput required placeholder="Recipe Name" formControlName="name" />
+      <input
+        matInput
+        required
+        placeholder="Recipe Name"
+        formControlName="name"
+      />
     </mat-form-field>
 
     <br />
@@ -30,19 +35,24 @@
 
     <br />
 
-<!-- ////////////////////// Image //////////////////////////////// -->
+    <!-- ////////////////////// Image //////////////////////////////// -->
 
-  <mat-form-field class="full">
-    <input matInput required placeholder="Image URL" formControlName="imageLink" />
-  </mat-form-field>
-  <h6>
-    To load you own image, using a hosting site like
-    <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.
-  </h6>
-  <h6>If working, your image will display below:</h6>
-  <img src="{{ editForm.value.imageLink }}" />
-<br>
-<br>
+    <mat-form-field class="full">
+      <input
+        matInput
+        required
+        placeholder="Image URL"
+        formControlName="imageLink"
+      />
+    </mat-form-field>
+    <h6>
+      To load you own image, using a hosting site like
+      <a href="https://www.imgur.com">Imgur.com</a> and paste the link here.
+    </h6>
+    <h6>If working, your image will display below:</h6>
+    <img src="{{ editForm.value.imageLink }}" />
+    <br />
+    <br />
     <mat-form-field class="full">
       <input
         matInput
@@ -54,22 +64,30 @@
     </mat-form-field>
     <br />
 
- <!-- /////////////////////// Commitment /////////////////////////////// -->
+    <!-- /////////////////////// Commitment /////////////////////////////// -->
 
-    <div div class = "divider">
-        <mat-icon mat-icon   class = "dividerIcon" > schedule </mat-icon >
+    <div div class="divider">
+      <mat-icon mat-icon class="dividerIcon"> schedule </mat-icon>
     </div>
     <h3>Commitment</h3>
     <mat-form-field class="full">
-      <input matInput
-      required placeholder="Cook Time" formControlName="cookTime" />
+      <input
+        matInput
+        required
+        placeholder="Cook Time"
+        formControlName="cookTime"
+      />
     </mat-form-field>
 
     <br />
 
     <mat-form-field class="full">
       <mat-label>Difficulty</mat-label>
-      <mat-select required formControlName="difficulty" value={{editRecipe.difficulty}}>
+      <mat-select
+        required
+        formControlName="difficulty"
+        value="{{ editRecipe.difficulty }}"
+      >
         <mat-option value="Easy">Easy</mat-option>
         <mat-option value="Moderate">Moderate</mat-option>
         <mat-option value="Hard">Hard</mat-option>
@@ -103,7 +121,7 @@
             mat-raised-button
             (click)="deleteIngredient(i)"
           >
-          <mat-icon>remove</mat-icon>Remove
+            <mat-icon>remove</mat-icon>Remove
           </button>
         </span>
       </div>
@@ -124,14 +142,13 @@
     </div>
     <h3>Instructions</h3>
 
-
     <div formArrayName="instructions">
       <div
         *ngFor="let instruction of instructionsForm.controls; let i = index"
         [formGroupName]="i"
       >
         <mat-form-field class="full">
-          <textarea
+          <textarea 
             cdkTextareaAutosize
             matInput
             required
@@ -142,34 +159,37 @@
       </div>
     </div>
     <span class="remove">
-      <button
-        class="delete"
-        mat-raised-button
-
-        (click)="deleteInstruction()"
-      >
-      <mat-icon>remove</mat-icon> Remove Last Instruction
+      <button class="delete" mat-raised-button (click)="deleteInstruction()">
+        <mat-icon>remove</mat-icon> Remove Last Instruction
       </button>
     </span>
-    <br>
-    <br>
+    <br />
+    <br />
     <button
       class="add-button"
       mat-raised-button
       color="primary"
       (click)="addInstructions()"
     >
-    <mat-icon>add</mat-icon>Add Instruction
+      <mat-icon>add</mat-icon>Add Instruction
     </button>
+    <mat-card-actions>
+      <button class="cancel" mat-raised-button (click)="backClicked()">
+        Cancel
+      </button>
+      <button
+        class="accept"
+        color="primary"
+        mat-raised-button
+        [disabled]="editForm.invalid"
+        (click)="updateRecipe()"
+
+      >
+        Save
+      </button>
+    </mat-card-actions>
   </form>
 
-  <mat-card-actions>
-    <button class="cancel" mat-raised-button (click)="backClicked()">
-      Cancel
-    </button>
-    <button class="accept" color="primary" mat-raised-button (click)="updateRecipe()">
-      Save
-    </button>
-  </mat-card-actions>
+  
   <mat-card-subtitle>*All Fields are required</mat-card-subtitle>
 </mat-card>

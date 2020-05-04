@@ -85,11 +85,17 @@ img {
     background-color: rgb(8, 112, 34);
 }
 
+.submit:hover:disabled{
+    background-color: #E0E0E0;
+ }
+
 .submit:hover {
     background-color: green;
     color: white;
 }
+
 .cancel:hover {
     background-color:gray;
     color: white;
 }
+

@@ -104,7 +104,7 @@
 
     <mat-card-actions>
         <button class="cancel" mat-raised-button (click)=backClicked()>Cancel</button>
-        <button class="submit" mat-raised-button color="primary" (click)="addRecipe()"><span>Submit</span></button>
+        <button class="submit" mat-raised-button color="primary" [disabled]="newRecipe.invalid" (click)="addRecipe()"><span>Submit</span></button>
     </mat-card-actions>
     <mat-card-subtitle>*All fields are required</mat-card-subtitle>
 </mat-card>
