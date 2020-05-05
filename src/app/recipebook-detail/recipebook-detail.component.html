@@ -1,14 +1,6 @@
 
- <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
   <app-nav-bar></app-nav-bar>
-  <br/>
-  <body class="bg">
+  
   <mat-card class="recipeBookDetails">
     <mat-card-header>
       <mat-card-title class="card-container-center">{{recipe.name}}</mat-card-title>
@@ -46,5 +38,4 @@
       <a [routerLink]="['/savedrecipes/edit', recipe.id ]"><button class="edit" color="primary" mat-raised-button>Edit</button></a>
     </mat-card-actions>
   </mat-card>
-  </body>
-  </html>
+  
