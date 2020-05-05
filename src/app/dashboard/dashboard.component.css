@@ -13,15 +13,16 @@
 .divider {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #00C853;
+  border-bottom: 5px double #00C853;
   line-height: 0.1em;
   margin: 10px 0 20px;
 }
 .divider .dividerIcon {
    background:#dbdbdb;
-   padding:0 10px;
+   padding:0px 20px 0px 15px;
    position: relative;
    top: 12px;
+   font-size: 30px;
 }
 
 .dashboard-card {

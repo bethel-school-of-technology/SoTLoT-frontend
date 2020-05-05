@@ -5,7 +5,7 @@ html, body {
 
 body {
   height: auto;
-  background: url('/assets/images/newbackground1.jpg/');
+  background: url('https://sotlotproject.web.app/assets/images/newbackground1.jpg');
   background-size: cover;
   background-position: center;
   min-height: 120vh;

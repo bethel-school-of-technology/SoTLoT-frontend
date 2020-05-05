@@ -73,7 +73,7 @@
 }
 
 .delete:hover {
-  background-color:green;
+  background-color:red;
 }
 
 .full {
