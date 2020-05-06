@@ -103,7 +103,7 @@ textarea {
     }
 }
 
-@media ( max-width : 400px) {
+@media ( max-width : 500px) {
     .recipeDetails {
         width: 100%;
         margin-top: 0px;
@@ -113,7 +113,7 @@ textarea {
     }  
 
     mat-card-actions{
-        margin: 0px;
+        margin: 0px 0px 10px 0px;
         padding: 0px;
     }
 }

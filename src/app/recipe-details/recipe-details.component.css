@@ -61,7 +61,7 @@ li {
   }
 }
 
-@media ( max-width : 400px) {
+@media ( max-width : 500px) {
   .recipeDetails {
       width: 100%;
       margin-top: 0px;
