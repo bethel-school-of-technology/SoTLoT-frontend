@@ -15,10 +15,15 @@
 }
 
 .center {
-    max-width: 45%;
+    max-width: 30%;
     width: inherit;
     margin: 0 auto;
     background-color: #e6e7e8;
+}
+@media (max-width: 500px) {
+    .center {
+        max-width: 50%;
+    }
 }
 
 .continue {
