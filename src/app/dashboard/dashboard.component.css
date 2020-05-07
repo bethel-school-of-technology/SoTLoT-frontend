@@ -17,6 +17,7 @@
   line-height: 0.1em;
   margin: 10px 0 20px;
 }
+
 .divider .dividerIcon {
    background:#dbdbdb;
    padding:0px 20px 0px 15px;
@@ -43,20 +44,25 @@
   padding: 0px;
   border-radius: 10px;
   height: 200px;
+  -webkit-filter: brightness(100%);
 }
 
+.saved-dashboard-card:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  -ms-transition: all .4s ease;
+  transition: all .4s ease;
+}
 .saved-container-center{
   width: 100%;
   text-align: center;
   color: white;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  height: 50px;
-
-}
-
-.saved-container-center:hover {
-  background-color:green;
+  height: 50px; 
+  font-size: 17px;
 }
 
 .all-img {
@@ -77,6 +83,8 @@
   object-position:50% 50%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin: 0px 16px;
+
 }
 
 .tile {
@@ -98,7 +106,7 @@
 .desc {
   overflow: scroll;
   overflow-x: hidden;
-  height: 45px;
+  height: 50px;
   margin-left: 5%;
   margin-right: 5%
 }
@@ -159,6 +167,10 @@
   width: 100%
 }
 
+::ng-deep .mat-typography .saved-dashboard-card{
+  line-height: 2px;
+}
+
 mat-form-field.mat-form-field {
   width: 360px;
 } 
@@ -169,3 +181,4 @@ mat-form-field.mat-form-field {
       padding: 0px;
   }
 }
+

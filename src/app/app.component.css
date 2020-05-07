@@ -24,3 +24,13 @@ body {
   overflow: auto;
   padding-bottom: 100px;
 }
+
+@media ( max-width : 500px) {
+  body{
+    background: url('https://sotlotproject.web.app/assets/images/newbackground1.jpg');
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+}
